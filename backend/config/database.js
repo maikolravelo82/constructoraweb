@@ -1,38 +1,29 @@
 const { Sequelize } = require('sequelize');
 
-// Solo cargar dotenv en desarrollo
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+// 🔥 FORZAR USO DE DATABASE_URL
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  console.error('❌ ERROR: DATABASE_URL no está configurada en las variables de entorno');
+  process.exit(1);
 }
 
-let sequelize;
+console.log('✅ Conectando a la base de datos...');
 
-if (process.env.NODE_ENV === 'production') {
-  // Usar variables separadas (las que ya tienes en Render)
-  sequelize = new Sequelize(
-    process.env.DB_NAME,      // dh_electrical
-    process.env.DB_USER,      // dh_user
-    process.env.DB_PASSWORD,  // tu contraseña
-    {
-      host: process.env.DB_HOST,
-      port: process.env.DB_PORT || 5432,
-      dialect: 'postgres',
-      logging: false,
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false
-        }
-      }
+const sequelize = new Sequelize(databaseUrl, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
     }
-  );
-} else {
-  // Usar SQLite en desarrollo local
-  sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './database.sqlite',
-    logging: false
-  });
-}
+  },
+  logging: false
+});
+
+// Probar la conexión
+sequelize.authenticate()
+  .then(() => console.log('✅ Database connected successfully'))
+  .catch(err => console.error('❌ Database connection error:', err.message));
 
 module.exports = sequelize;
