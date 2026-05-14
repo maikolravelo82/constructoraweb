@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&H Electrical LLC | Electrical Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000000;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1210px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== METALLIC HEADER ===== */
+    .navbar {
+      background: #0a0a0a;
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,200,100,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .navbar .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .left-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .logo i {
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #ffb347;
+      font-size: 1.2rem;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    .nav-links a:hover { color: #ffb347; }
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .header-phone {
+      color: #ffb347;
+      font-weight: 600;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .header-whatsapp {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid #ffb347;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      color: #ffb347;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: 0.2s;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    }
+    .header-whatsapp i { margin-right: 0.2rem; font-size: 0.7rem; }
+    .header-whatsapp:hover { background: #ffb347; color: #0a0a12; }
+    .admin-nav-btn {
+      background: #ffb347;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      color: #0a2b3e !important;
+      font-weight: bold !important;
+      font-size: 0.75rem !important;
+    }
+    .admin-nav-btn:hover {
+      background: #e69a2e;
+      color: white !important;
+    }
+
+    /* ===== THREE MAIN COLUMNS ===== */
+    .three-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: stretch;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .left-col {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .lightning-above {
+      font-size: 2rem;
+      display: block;
+      text-align: center;
+      animation: pulse 1.5s infinite;
+      filter: drop-shadow(0 0 5px #ffb347);
+      margin-bottom: 0.2rem;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.8; text-shadow: 0 0 0px #ffb347; }
+      50% { opacity: 1; text-shadow: 0 0 10px #ffb347; }
+      100% { opacity: 0.8; text-shadow: 0 0 0px #ffb347; }
+    }
+    .left-col .company-name {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #fff5e6, #ffd9a5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.3rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+    }
+    .left-col h2 {
+      font-size: 1.2rem;
+      color: #ffb347;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .left-col .description {
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+    .badges-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .badge {
+      background: rgba(0,0,0,0.5);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 0.7rem;
+      border-radius: 30px;
+      border: 1px solid #ffb347;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #ffb347;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .badge i { font-size: 0.7rem; }
+    .buttons-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: auto;
+    }
+    .btn-llamar {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffb347, #e69a2e);
+      color: #0a0a12;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 0.8rem;
+      box-shadow: 0 3px 8px rgba(255,180,70,0.3);
+      text-align: center;
+      min-width: 120px;
+    }
+    .btn-llamar .small-number {
+      display: block;
+      font-size: 0.6rem;
+      margin-top: 0.1rem;
+    }
+    .btn-whatsapp-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #25d366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: 0.2s;
+      box-shadow: 0 3px 8px rgba(37,211,102,0.3);
+    }
+    .btn-whatsapp-main:hover { background: #128c7e; transform: translateY(-2px); }
+
+    /* Central image */
+    .center-col {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .image-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #0a0a12;
+      min-height: 280px;
+    }
+    .electric-image {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,180,70,0.3);
+      transition: transform 0.3s;
+    }
+    .image-caption {
+      margin-top: 0.3rem;
+      font-size: 0.6rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* Compact submenu */
+    .right-col {
+      flex: 0.6;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .service-card-24 {
+      background: #0a0a12;
+      border: 2px solid #000000;
+      border-radius: 20px;
+      padding: 0.8rem 0.6rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    }
+    .service-card-24:hover {
+      border-color: #ffb347;
+    }
+    .card-lightning { font-size: 1.5rem; color: #ffb347; margin-bottom: 0.2rem; }
+    .service-card-24 h3 {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: #ffd9a5;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+      text-transform: uppercase;
+    }
+    .service-card-24 .hours {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0.1rem 0 0.4rem 0;
+    }
+    .service-card-24 ul { list-style: none; text-align: left; margin-top: 0.2rem; }
+    .service-card-24 li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.6rem;
+      color: #ddd;
+      border-bottom: 1px dotted #333;
+      padding-bottom: 0.15rem;
+    }
+    .service-card-24 li i { color: #ffb347; width: 0.8rem; }
+
+    /* ===== OUR SERVICES SECTION ===== */
+    .our-services {
+      padding: 0.5rem 0;
+      margin: 0;
+      border: none;
+    }
+    .services-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+    .services-flex {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.7rem;
+      justify-content: flex-start;
+      align-items: stretch;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+    }
+    .service-square {
+      background: #1a1a1a;
+      border: 2px solid #000000;
+      border-radius: 16px;
+      width: 180px;
+      min-width: 180px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .service-square:hover {
+      border-color: #ffb347;
+      transform: translateY(-3px);
+      background: #2a2a2a;
+    }
+    .service-square i { font-size: 1.6rem; color: #ffb347; margin-bottom: 0.3rem; }
+    .service-square h3 { font-size: 0.7rem; font-weight: bold; color: #ffb347; margin-bottom: 0.2rem; }
+    .service-square p { font-size: 0.6rem; color: #ccc; line-height: 1.2; }
+
+    /* ===== ABOUT US + IMAGES SECTION ===== */
+    .info-section {
+      padding: 0.5rem 0 0 0;
+      margin: 0;
+      border: none;
+    }
+    .square-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.7rem;
+      justify-content: flex-start;
+      overflow-x: auto;
+      align-items: stretch;
+      padding-bottom: 0;
+      width: 100%;
+    }
+    .square {
+      width: 220px;
+      min-width: 220px;
+      background: rgba(0, 0, 0, 0.55);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.8rem;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+    .square:hover {
+      transform: translateY(-3px);
+      border: 1px solid rgba(255,180,70,0.3);
+    }
+    .about-square {
+      justify-content: flex-start;
+      min-height: 260px;
+      padding-top: 1rem;
+    }
+    .about-square h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .about-square p {
+      font-size: 0.7rem;
+      color: #ccc;
+      line-height: 1.3;
+    }
+    .image-square {
+      padding: 0;
+      background: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      justify-content: center;
+      min-height: auto;
+      overflow: hidden;
+    }
+    .image-square img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .why-square {
+      min-height: 260px;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.65);
+    }
+    .why-square h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffb347;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .why-square ul {
+      list-style: none;
+      text-align: left;
+      width: 100%;
+      margin-top: 0.2rem;
+      padding-left: 0.5rem;
+    }
+    .why-square li {
+      font-size: 0.65rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #ddd;
+    }
+    .why-square li i {
+      color: #ffb347;
+      font-size: 0.65rem;
+      width: 0.9rem;
+    }
+
+    /* ===== CUSTOMER REVIEWS SECTION ===== */
+    .reviews-section {
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      padding: 1rem;
+      border: 1px solid rgba(255,180,70,0.2);
+      margin: 1rem 0 1rem 0;
+    }
+    .reviews-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+    .reviews-two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .reviews-list-col {
+      flex: 1;
+      min-width: 250px;
+    }
+    .reviews-form-col {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .accordion-btn {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid #ffb347;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffb347;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      margin: 0 0 0.8rem 0;
+      background-color: #0a0a0a;
+    }
+    .accordion-btn:hover {
+      background: #ffb347;
+      color: #0a0a12;
+    }
+    .accordion-btn i {
+      transition: transform 0.3s;
+    }
+    .accordion-btn.active i {
+      transform: rotate(180deg);
+    }
+
+    .reviews-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: rgba(0,0,0,0.3);
+      border-radius: 16px;
+      margin-bottom: 0;
+    }
+    .reviews-panel.open {
+      max-height: 400px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .reviews-scroll {
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    .reviews-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .reviews-scroll::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    .reviews-scroll::-webkit-scrollbar-thumb {
+      background: #ffb347;
+      border-radius: 10px;
+    }
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.2rem;
+    }
+
+    .always-visible-reviews {
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+      padding: 0.5rem;
+      margin-top: 0;
+    }
+    .always-visible-reviews .review-item {
+      margin-bottom: 0.5rem;
+    }
+    .always-visible-reviews .review-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-item {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 0.5rem;
+      border: 1px solid rgba(255,180,70,0.3);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+    }
+    .review-stars {
+      color: #ffc107;
+      font-size: 0.65rem;
+      min-width: 70px;
+    }
+    .review-text {
+      color: #ddd;
+      line-height: 1.2;
+      flex: 2;
+      min-width: 120px;
+      font-size: 0.65rem;
+    }
+    .review-author {
+      font-weight: 600;
+      color: #ffb347;
+      min-width: 80px;
+      font-size: 0.6rem;
+    }
+    .review-date {
+      font-size: 0.5rem;
+      color: #888;
+      min-width: 55px;
+    }
+
+    .add-review {
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 0.8rem;
+      border: 1px solid rgba(255,180,70,0.3);
+      height: 100%;
+    }
+    .add-review h3 {
+      font-size: 0.9rem;
+      color: #ffb347;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 0.4rem;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.35rem 0.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,180,70,0.4);
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.65rem;
+    }
+    .form-group textarea {
+      resize: vertical;
+      font-size: 0.65rem;
+    }
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.5rem;
+      margin-top: 0.1rem;
+      display: none;
+    }
+    .submit-btn {
+      background: linear-gradient(135deg, #ffb347, #e69a2e);
+      color: #0a0a12;
+      padding: 0.35rem 0.7rem;
+      border-radius: 30px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.7rem;
+      transition: 0.2s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      background: #ff9f1a;
+    }
+
+    /* ===== WORK GALLERY SECTION (desde API) ===== */
+    .work-section {
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      padding: 1rem;
+      border: 1px solid rgba(255,180,70,0.2);
+      margin: 1rem 0 1.5rem 0;
+    }
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .work-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+    .work-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-start;
+      padding: 0.5rem;
+    }
+    .work-card {
+      width: calc(33.333% - 0.7rem);
+      min-width: 230px;
+      background: #0a0a12;
+      border: 1px solid rgba(255,180,70,0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffb347;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .work-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .work-info {
+      padding: 0.8rem;
+      text-align: center;
+    }
+    .work-info h3 {
+      font-size: 0.9rem;
+      color: #ffb347;
+      margin-bottom: 0.3rem;
+    }
+    .work-info p {
+      font-size: 0.7rem;
+      color: #ccc;
+    }
+    .work-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+      width: 100%;
+    }
+    .work-placeholder i {
+      font-size: 3rem;
+      color: #ffb347;
+      margin-bottom: 1rem;
+    }
+    .loading-services {
+      text-align: center;
+      padding: 2rem;
+      color: #ffb347;
+    }
+    .fa-spin {
+      animation: fa-spin 2s infinite linear;
+    }
+    @keyframes fa-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Lightbox modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .lightbox-modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .lightbox-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ===== BLACK RECTANGLE WITH GOLD LINES ===== */
+    .contact-destination {
+      scroll-margin-top: 80px;
+    }
+    .main-rectangle {
+      width: 100%;
+      max-width: 1200px;
+      margin: 1rem auto;
+      height: auto;
+      min-height: 200px;
+      background: #000000;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .block {
+      flex: 1;
+      border-right: none;
+      background: #050505;
+      padding: 28px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      min-height: 200px;
+    }
+
+    .block:hover {
+      background: #0a0a0a;
+    }
+
+    .main-rectangle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #d4af37, #f5e18a, #d4af37, #f5e18a, #d4af37);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .block:first-child::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 15px;
+      width: 2px;
+      background: linear-gradient(180deg, #d4af37, #f5e18a);
+    }
+
+    .block:last-child::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 15px;
+      width: 2px;
+      background: linear-gradient(180deg, #d4af37, #f5e18a);
+    }
+
+    .block:first-child::before {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 35%;
+      height: 30%;
+      width: 2px;
+      background: linear-gradient(180deg, #d4af37, #f5e18a, #d4af37);
+    }
+
+    .block:nth-child(2)::before {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 35%;
+      height: 30%;
+      width: 2px;
+      background: linear-gradient(180deg, #d4af37, #f5e18a, #d4af37);
+    }
+
+    .block:nth-child(3)::before {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 35%;
+      height: 30%;
+      width: 2px;
+      background: linear-gradient(180deg, #d4af37, #f5e18a, #d4af37);
+    }
+
+    .call-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .call-icon {
+      font-size: 28px;
+      color: #ffb347;
+    }
+    .call-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+    .phone {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      color: #ffb347;
+      background: transparent;
+      display: inline-block;
+      padding: 4px 0;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .phone:hover {
+      color: #ffd89b;
+    }
+    .available {
+      font-size: 13px;
+      font-weight: 500;
+      background: transparent;
+      display: inline-block;
+      padding: 0;
+      color: #aaaaaa;
+    }
+
+    .whatsapp-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .whatsapp-icon {
+      font-size: 28px;
+      color: #25D366;
+    }
+    .whatsapp-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .whatsapp-desc {
+      font-size: 13px;
+      font-weight: 500;
+      color: #cccccc;
+    }
+    .whatsapp-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5px;
+    }
+    .whatsapp-link {
+      font-size: 14px;
+      font-weight: 600;
+      background: #25D366;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+    .whatsapp-link i {
+      font-size: 18px;
+    }
+    .whatsapp-link:hover {
+      background: #128C7E;
+      transform: scale(1.02);
+    }
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .service-icon {
+      font-size: 28px;
+      color: #ffb347;
+    }
+    .service-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .service-text {
+      font-size: 14px;
+      font-weight: 500;
+      background: transparent;
+      display: inline-block;
+      padding: 0;
+      color: #ffb347;
+    }
+
+    .social-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.2s;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #d4af37 0%, #f5e18a 50%, #a67c00 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      border-radius: 8px;
+    }
+    .social-links a i {
+      font-size: 28px;
+      background: linear-gradient(135deg, #d4af37 0%, #f5e18a 50%, #a67c00 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .social-links a span {
+      background: linear-gradient(135deg, #d4af37 0%, #f5e18a 50%, #a67c00 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .social-links a:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Email section at the end */
+    .email-section {
+      text-align: center;
+      padding: 0.5rem 0;
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      margin: 0.5rem 0;
+    }
+    .email-link {
+      color: #ffb347;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .email-link:hover {
+      color: #ffd89b;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 850px) {
+      .main-rectangle {
+        flex-direction: column;
+        max-width: 450px;
+        margin: 1rem auto;
+      }
+      .block:first-child::after,
+      .block:last-child::after,
+      .block:first-child::before,
+      .block:nth-child(2)::before,
+      .block:nth-child(3)::before {
+        display: none;
+      }
+      .block {
+        border-right: none;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      .block:last-child {
+        border-bottom: none;
+      }
+      .social-links {
+        gap: 25px;
+      }
+      .reviews-two-columns {
+        flex-direction: column;
+      }
+      .work-card {
+        width: calc(50% - 0.5rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .work-card {
+        width: 100%;
+      }
+      .square {
+        width: 180px;
+        min-width: 180px;
+      }
+      .image-square img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      .navbar .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .left-group { justify-content: center; }
+      .header-contact { justify-content: center; margin-left: 0; }
+    }
+    @media (max-width: 900px) {
+      .three-columns {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .left-col, .center-col, .right-col { width: 100%; text-align: center; }
+      .badges-group, .buttons-group, .left-col .company-name, .left-col h2, .left-col .description { justify-content: center; text-align: center; }
+      .right-col { flex: auto; max-width: 280px; margin: 0 auto; }
+      .services-flex, .square-row { justify-content: flex-start; padding-left: 1rem; padding-right: 1rem; }
+      .electric-image { min-height: 240px; max-height: 300px; }
+      .service-square { width: 160px; min-width: 160px; height: 150px; }
+      .square { width: 200px; min-width: 200px; }
+    }
+
+    .footer-legal {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      color: #aaa;
+    }
+
+    .toast {
+      visibility: hidden;
+      background: linear-gradient(135deg, #d4af37, #b8942e);
+      color: #000000;
+      text-align: center;
+      padding: 10px 20px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      font-weight: bold;
+      opacity: 0;
+      transition: 0.2s;
+      white-space: nowrap;
+      z-index: 1000;
+    }
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="left-group">
+      <div class="logo">
+        <img src="/assets/WhatsApp Image 2026-04-26 at 2.32.10 PM.jpeg" alt="20px" style="height: 100px;">
+         D&H ELECTRICAL LLC
+      </div>
+      <div class="nav-links">
+        <a href="#">HOME</a>
+        <a href="#services">SERVICES</a>
+        <a href="#about-us">ABOUT US</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#work-section">COMPLETED WORK</a>
+        <a href="#contact-section">CONTACT</a>
+        <a href="#" id="adminLoginBtn" class="admin-nav-btn"><i class="fas fa-lock"></i> Admin</a>
+      </div>
+    </div>
+    <div class="header-contact">
+      <span class="header-phone">📞 786-870-8053</span>
+      <a href="https://wa.me/17868708053" target="_blank" rel="noopener noreferrer" class="header-whatsapp">
+        <i class="fab fa-whatsapp"></i> WHATSAPP
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Three columns section -->
+<section class="container">
+  <div class="three-columns">
+    <div class="left-col">
+      <div class="lightning-above">⚡</div>
+      <div class="company-name">D&H ELECTRICAL LLC</div>
+      <h2>RESIDENTIAL & COMMERCIAL ELECTRICAL SERVICES</h2>
+      <p class="description">
+        Professional, safe and reliable work.<br>
+        Electrical solutions that brighten your life and business.
+      </p>
+      <div class="badges-group">
+        <div class="badge"><i class="fas fa-clock"></i> 24/7 · 24/7 SERVICE · Emergencies</div>
+        <div class="badge"><i class="fas fa-certificate"></i> GUARANTEED WORK</div>
+        <div class="badge"><i class="fas fa-shield-alt"></i> LICENSED & INSURED</div>
+      </div>
+      <div class="buttons-group">
+        <a href="tel:7868708053" class="btn-llamar">
+          <i class="fas fa-phone-alt"></i> CALL NOW
+          <span class="small-number">786-870-8053</span>
+        </a>
+        <a href="https://wa.me/17868708053?text=Hello%2C%20I%20need%20information%20about%20electrical%20services" class="btn-whatsapp-main" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> MESSAGE US ON WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <div class="center-col">
+      <div class="image-wrapper">
+        <img class="electric-image" src="/assets/WhatsApp Image 2026-04-29 at 6.19.07 PM.jpeg" alt="Professional electrician working" onerror="this.src='https://placehold.co/600x400/1a1a1a/ffb347?text=D%26H+Electric'">
+      </div>
+      <div class="image-caption">Precision equipment for professional diagnostics</div>
+    </div>
+
+    <div class="right-col">
+      <div class="service-card-24">
+        <div class="card-lightning"><i class="fas fa-bolt"></i></div>
+        <h3>ELECTRICAL SERVICE</h3>
+        <div class="hours">24 HOURS</div>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Fast response</li>
+          <li><i class="fas fa-check-circle"></i> Professional attention</li>
+          <li><i class="fas fa-check-circle"></i> Effective solutions</li>
+          <li><i class="fas fa-check-circle"></i> Available 24/7</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR SERVICES SECTION -->
+<section id="services" class="our-services">
+  <div class="container">
+    <div class="services-title">⚡ OUR SERVICES</div>
+    <div class="services-flex">
+      <div class="service-square">
+        <i class="fas fa-tools"></i>
+        <h3>ELECTRICAL PANEL INSTALLATION</h3>
+        <p>Upgrades and new installations</p>
+      </div>
+      <div class="service-square">
+        <i class="fas fa-plug"></i>
+        <h3>RESIDENTIAL WIRING</h3>
+        <p>Safe wiring for your home</p>
+      </div>
+      <div class="service-square">
+        <i class="fas fa-building"></i>
+        <h3>COMMERCIAL SERVICES</h3>
+        <p>Electrical solutions for businesses and offices</p>
+      </div>
+      <div class="service-square">
+        <i class="fas fa-lightbulb"></i>
+        <h3>INDOOR & OUTDOOR LIGHTING</h3>
+        <p>LED installation, security and more</p>
+      </div>
+      <div class="service-square">
+        <i class="fas fa-wrench"></i>
+        <h3>ELECTRICAL REPAIRS</h3>
+        <p>Quick solution to failures and short circuits</p>
+      </div>
+      <div class="service-square">
+        <i class="fas fa-microchip"></i>
+        <h3>GENERATORS & TRANSFER SWITCHES</h3>
+        <p>Generator installation and maintenance</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US + IMAGES SECTION -->
+<section id="about-us" class="info-section">
+  <div class="container">
+    <div class="square-row">
+      <div class="square about-square">
+        <h3>ABOUT US</h3>
+        <p>At D&H Electrical LLC, we are a licensed and insured company committed to providing high-quality electrical services to homes and businesses. We have experience, professional tools, and the commitment to get the job done right from the start.</p>
+      </div>
+      
+      <div class="square image-square">
+        <img src="assets/WhatsApp Image 2026-04-29 at 6.19.06 PM.jpeg" alt="Professional electrical installation" onerror="this.src='https://placehold.co/300x200/1a1a1a/ffb347?text=Installation'">
+      </div>
+      
+      <div class="square image-square">
+        <img src="assets/WhatsApp Image 2026-04-29 at 6.19.07 PM (1).jpeg" alt="Safe electrical maintenance" onerror="this.src='https://placehold.co/300x200/1a1a1a/ffb347?text=Maintenance'">
+      </div>
+      
+      <div class="square image-square">
+        <img src="assets/WhatsApp Image 2026-04-29 at 6.19.07 PM (2).jpeg" alt="Modern electrical panel" onerror="this.src='https://placehold.co/300x200/1a1a1a/ffb347?text=Panel'">
+      </div>
+      
+      <div class="square why-square">
+        <h3>✨ WHY CHOOSE US?</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Trained and licensed professionals</li>
+          <li><i class="fas fa-check-circle"></i> Safe and guaranteed work</li>
+          <li><i class="fas fa-check-circle"></i> Fair and transparent prices</li>
+          <li><i class="fas fa-check-circle"></i> Fast 24/7 response</li>
+          <li><i class="fas fa-check-circle"></i> 100% satisfaction guaranteed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CUSTOMER REVIEWS SECTION ===== -->
+<div class="container">
+  <div id="reviews" class="reviews-section">
+    <h2 class="reviews-title">⭐ CUSTOMER REVIEWS</h2>
+    
+    <div class="reviews-two-columns">
+      <div class="reviews-list-col">
+        <div class="accordion-btn" id="accordionBtn">
+          <i class="fas fa-chevron-down"></i> SEE MORE REVIEWS
+        </div>
+        <div class="reviews-panel" id="reviewsPanel">
+          <div class="reviews-scroll">
+            <div id="reviewsList" class="reviews-list"></div>
+          </div>
+        </div>
+        <div class="always-visible-reviews">
+          <div id="featuredReviews" class="reviews-list"></div>
+        </div>
+      </div>
+      <div class="reviews-form-col">
+        <div class="add-review">
+          <h3>✍️ Leave your review</h3>
+          <form id="reviewForm">
+            <div class="form-group">
+              <input type="text" id="reviewName" placeholder="Full name *" required>
+              <div class="error-message" id="nameError">Name must contain only letters and spaces</div>
+            </div>
+        
+            <div class="form-group">
+              <select id="reviewRating" required title="Service rating">
+                <option value="5">5 stars - Excellent</option>
+                <option value="4">4 stars - Very good</option>
+                <option value="3">3 stars - Good</option>
+                <option value="2">2 stars - Fair</option>
+                <option value="1">1 star - Poor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea id="reviewComment" rows="2" placeholder="Your experience with our services *" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPLETED WORK SECTION (GALERÍA DESDE API) ===== -->
+<div id="work-section" class="container">
+  <div class="work-section">
+    <div class="work-header">
+      <h2 class="work-title">🔧 COMPLETED WORK</h2>
+    </div>
+    <div id="workGrid" class="work-grid">
+      <div class="loading-services">
+        <i class="fas fa-spinner fa-spin"></i> Loading gallery...
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="lightbox-modal">
+  <button class="close-lightbox" id="closeLightboxBtn" aria-label="Close lightbox">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ===== 4 BLOCKS RECTANGLE (CONTACT SECTION) ===== -->
+<div id="contact-section" class="container contact-destination">
+  <div class="main-rectangle">
+    <div class="block">
+      <div class="call-item">
+        <i class="fas fa-phone-alt call-icon"></i>
+        <div class="call-title">CALL NOW</div>
+      </div>
+      <div class="phone" id="phoneNumber">786-870-8053</div>
+      <div class="available">
+        <i class="fas fa-clock"></i> Available 24/7
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="whatsapp-header">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+        <div class="whatsapp-title">MESSAGE US ON WHATSAPP</div>
+      </div>
+      <div class="whatsapp-desc">We respond quickly and provide solutions</div>
+      <div class="whatsapp-row">
+        <a href="#" class="whatsapp-link" id="whatsappLink">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="service-header">
+        <i class="fas fa-map-marker-alt service-icon"></i>
+        <div class="service-title">SERVICE AREA</div>
+      </div>
+      <div class="service-text">
+        <i class="fas fa-check-circle"></i> All of Florida and nearby areas
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="social-title">FOLLOW US</div>
+      <div class="social-links">
+        <a href="#" id="instagramLink">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="#" id="tiktokLink">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email section -->
+<div class="container">
+  <div class="email-section">
+    <a href="mailto:dh_electrical@icloud.com" class="email-link">
+      <i class="fas fa-envelope"></i> dh_electrical@icloud.com
+    </a>
+  </div>
+</div>
+
+<div id="toastMsg" class="toast">✨ Number copied</div>
+
+<footer class="footer-legal">
+  <p>© 2023 D&H Electrical LLC – Professional, safe and reliable work | Licensed & Insured</p>
+</footer>
+
+<script>
+    // ============================================
+    // CONFIGURACIÓN DE API - RENDER
+    // ============================================
+    const getApiUrl = () => {
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return 'http://localhost:3000/api/services';
+      }
+      return `${window.location.protocol}//${window.location.hostname}/api/services`;
+    };
+    
+    const API_URL = getApiUrl();
+    console.log('API URL:', API_URL);
+    
+    let isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true';
+    
+    // Admin login
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    if (adminLoginBtn) {
+      adminLoginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!isLoggedIn) {
+          const password = prompt('🔐 Enter the administrator password:');
+          if (password === 'Electricidad2023') {
+            sessionStorage.setItem('adminLoggedIn', 'true');
+            isLoggedIn = true;
+            alert('✅ Administrator access granted');
+            window.location.href = 'admin.html';
+          } else if (password !== null) {
+            alert('❌ Incorrect password');
+          }
+        } else {
+          window.location.href = 'admin.html';
+        }
+      });
+    }
+    
+    // ===== CARGAR GALERÍA DESDE API =====
+    async function cargarGaleria() {
+      const workGrid = document.getElementById('workGrid');
+      if (!workGrid) return;
+      
+      workGrid.innerHTML = `
+        <div class="loading-services">
+          <i class="fas fa-spinner fa-spin"></i> Loading gallery...
+        </div>
+      `;
+      
+      try {
+        const response = await fetch(API_URL);
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          mostrarGaleria(result.data);
+        } else {
+          workGrid.innerHTML = `
+            <div class="work-placeholder">
+              <i class="fas fa-camera"></i>
+              <p>More work photos coming soon</p>
+              <small>We are updating our gallery</small>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.error('Error loading gallery:', error);
+        workGrid.innerHTML = `
+          <div class="work-placeholder">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Unable to load gallery</p>
+            <small>Please try again later</small>
+          </div>
+        `;
+      }
+    }
+    
+    function mostrarGaleria(trabajos) {
+      const workGrid = document.getElementById('workGrid');
+      if (!workGrid) return;
+      
+      workGrid.innerHTML = trabajos.map(trabajo => `
+        <div class="work-card" onclick="openLightboxModal('${trabajo.foto}')">
+          <img src="${trabajo.foto}" 
+               alt="Electrical work" 
+               onerror="this.src='https://placehold.co/400x300/1a1a1a/ffb347?text=Image+not+available'">
+          <div class="work-info">
+            <h3>Completed Project</h3>
+            <p><i class="far fa-calendar-alt"></i> ${new Date(trabajo.createdAt).toLocaleDateString()}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // Lightbox functions
+    function openLightboxModal(src) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      if (modal && img) {
+        img.src = src;
+        modal.classList.add('active');
+      }
+    }
+    
+    const modal = document.getElementById('lightboxModal');
+    const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+    if (closeLightboxBtn) {
+      closeLightboxBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+    }
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
+      });
+    }
+    
+    // ===== TESTIMONIOS (Reviews desde API) =====
+    async function loadTestimonialsFromAPI() {
+      try {
+        const response = await fetch('/api/reviews');
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          // Mostrar los 3 más recientes en featured
+          const featuredReviews = result.data.slice(0, 3);
+          const featuredContainer = document.getElementById('featuredReviews');
+          if (featuredContainer) {
+            featuredContainer.innerHTML = featuredReviews.map(review => `
+              <div class="review-item">
+                <div class="review-stars">${'★'.repeat(review.clasificacion)}${'☆'.repeat(5 - review.clasificacion)}</div>
+                <div class="review-text">"${escapeHTML(review.descripcion)}"</div>
+                <div class="review-author">${escapeHTML(review.nombre)}</div>
+                <div class="review-date">${new Date(review.createdAt).toLocaleDateString()}</div>
+              </div>
+            `).join('');
+          }
+          
+          // Mostrar todos en el panel adicional
+          const allReviewsContainer = document.getElementById('reviewsList');
+          if (allReviewsContainer) {
+            allReviewsContainer.innerHTML = result.data.map(review => `
+              <div class="review-item">
+                <div class="review-stars">${'★'.repeat(review.clasificacion)}${'☆'.repeat(5 - review.clasificacion)}</div>
+                <div class="review-text">"${escapeHTML(review.descripcion)}"</div>
+                <div class="review-author">${escapeHTML(review.nombre)}</div>
+                <div class="review-date">${new Date(review.createdAt).toLocaleDateString()}</div>
+              </div>
+            `).join('');
+          }
+        } else {
+          const featuredContainer = document.getElementById('featuredReviews');
+          if (featuredContainer) {
+            featuredContainer.innerHTML = '<div class="review-item">No reviews yet. Be the first to leave your comment!</div>';
+          }
+        }
+      } catch (error) {
+        console.error('Error loading reviews:', error);
+      }
+    }
+    
+    // Add review via API
+    const reviewForm = document.getElementById('reviewForm');
+    if (reviewForm) {
+      reviewForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('reviewName')?.value;
+        
+        const rating = document.getElementById('reviewRating')?.value;
+        const comment = document.getElementById('reviewComment')?.value;
+        
+        if (!name || !comment) {
+          alert('Please complete all required fields.');
+          return;
+        }
+        
+        try {
+          const response = await fetch('/api/reviews', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nombre: name,
+              clasificacion: parseInt(rating),
+              descripcion: comment,
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            alert('Thank you for sharing your experience!');
+            reviewForm.reset();
+            loadTestimonialsFromAPI();
+          } else {
+            alert('Error: ' + (result.message || 'Could not save review'));
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Connection error. Please try again later.');
+        }
+      });
+    }
+    
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
+    
+    // Accordion for reviews
+    const accordionBtn = document.getElementById('accordionBtn');
+    const reviewsPanel = document.getElementById('reviewsPanel');
+    if (accordionBtn && reviewsPanel) {
+      accordionBtn.addEventListener('click', () => {
+        reviewsPanel.classList.toggle('open');
+        accordionBtn.classList.toggle('active');
+      });
+    }
+    
+    // ===== VALIDACIONES DEL FORMULARIO =====
+    function validateName(name) {
+      const nameRegex = /^[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]{2,50}$/;
+      return nameRegex.test(name.trim());
+    }
+    
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email.trim());
+    }
+    
+    const nameInput = document.getElementById('reviewName');
+    const emailInput = document.getElementById('reviewEmail');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    
+    function hideErrors() {
+      if (nameError) nameError.style.display = 'none';
+      if (emailError) emailError.style.display = 'none';
+    }
+    
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        if (nameError) nameError.style.display = 'none';
+      });
+    }
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        if (emailError) emailError.style.display = 'none';
+      });
+    }
+    
+    // ===== ELEMENTOS DE CONTACTO =====
+    const phoneDisplay = document.getElementById('phoneNumber');
+    const toast = document.getElementById('toastMsg');
+    const whatsappLink = document.getElementById('whatsappLink');
+    const instagramLink = document.getElementById('instagramLink');
+    const tiktokLink = document.getElementById('tiktokLink');
+    
+    const phoneRaw = "7868708053";
+    const phoneFormatted = "786-870-8053";
+    
+    function showToast(msg) {
+      if (toast) {
+        toast.textContent = msg || "✨ Number copied";
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+    }
+    
+    if (phoneDisplay) {
+      phoneDisplay.style.cursor = 'pointer';
+      phoneDisplay.addEventListener('click', () => {
+        navigator.clipboard.writeText(phoneFormatted);
+        showToast("📞 Number copied: " + phoneFormatted);
+      });
+    }
+    
+    if (whatsappLink) {
+      whatsappLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = `https://wa.me/1${phoneRaw}?text=Hello%2C%20I%20need%20information%20about%20electrical%20services`;
+        window.open(url, '_blank');
+      });
+    }
+    
+    if (instagramLink) {
+      instagramLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://instagram.com/electric_company_1', '_blank');
+      });
+    }
+    
+    if (tiktokLink) {
+      tiktokLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://www.tiktok.com/@electrician412', '_blank');
+      });
+    }
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      cargarGaleria();
+      loadTestimonialsFromAPI();
+    });
+</script>
+
+</body>
+</html>

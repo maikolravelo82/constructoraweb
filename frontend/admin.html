@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración - Onsite Ontime Concrete</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000000;
+      color: #e0e0e0;
+      padding: 2rem;
+    }
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    /* Header */
+    .admin-header {
+      background: #0a0a0a;
+      border-bottom: 1px solid rgba(255,200,100,0.2);
+      padding: 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .admin-header h1 {
+      background: linear-gradient(135deg, #ffd89b, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .admin-header h1 i {
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #ffb347;
+    }
+    .logout-btn {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logout-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    
+    /* Secciones */
+    .section {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,180,70,0.2);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .section h2 {
+      color: #ffb347;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      border-left: 4px solid #ffb347;
+      padding-left: 1rem;
+    }
+    .section h2 i {
+      color: #ffb347;
+    }
+    
+    /* Formulario */
+    .add-work-form {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,180,70,0.2);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #ffb347;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background: #0a0a0a;
+      color: #e0e0e0;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: #ffb347;
+    }
+    .form-group input[type="file"] {
+      border: 2px dashed #ffb347;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .form-group input[type="file"]:hover {
+      background: rgba(255,180,70,0.1);
+    }
+    .submit-btn {
+      background: linear-gradient(135deg, #28a745, #218838);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    
+    /* Preview de imágenes */
+    .preview-container {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .preview-box {
+      display: none;
+      margin-top: 0.5rem;
+    }
+    .preview-box.show {
+      display: block;
+    }
+    .preview-box label {
+      font-size: 0.7rem;
+      color: #ffb347;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    .preview-box img {
+      max-width: 150px;
+      max-height: 100px;
+      border-radius: 8px;
+      border: 2px solid #ffb347;
+      object-fit:contain;
+    }
+    
+    /* Grid de trabajos */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 2px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      border-color: #ffb347;
+      transform: translateY(-4px);
+    }
+    .card .image-pair {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .card .image-pair div {
+      flex: 1;
+      text-align: center;
+    }
+    .card .image-pair img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .card .image-label {
+      font-size: 0.6rem;
+      color: #ffb347;
+      display: block;
+      margin-top: 0.25rem;
+    }
+    .card small {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #aaa;
+      font-size: 0.7rem;
+    }
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .delete-btn, .edit-btn {
+      flex: 1;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .delete-btn {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+    }
+    .edit-btn {
+      background: linear-gradient(135deg, #ffb347, #ff8c00);
+    }
+    .delete-btn:hover, .edit-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    
+    /* Testimonios */
+    .testimonials-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .testimonial-card-admin {
+      background: #1a1a1a;
+      border-left: 4px solid #ffb347;
+      padding: 1.2rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .testimonial-card-admin:hover {
+      transform: translateX(4px);
+      background: #222;
+    }
+    .testimonial-content {
+      flex: 1;
+    }
+    .testimonial-content .stars {
+      color: #ffc107;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial-content p {
+      font-style: italic;
+      color: #ddd;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .testimonial-content strong {
+      color: #ffb347;
+      font-size: 0.85rem;
+    }
+    .testimonial-content small {
+      color: #888;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+    .delete-testimonial-btn {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .delete-testimonial-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    
+    /* Modal de edición */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 550px;
+      width: 90%;
+      border: 1px solid #ffb347;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-content h3 {
+      color: #ffb347;
+      margin-bottom: 1rem;
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .modal-buttons button {
+      flex: 1;
+    }
+    .close-modal {
+      background: #666;
+    }
+    
+    /* Alertas */
+    .alert {
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1100;
+      max-width: 400px;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .alert-success {
+      background: rgba(40, 167, 69, 0.95);
+      color: white;
+      border-left: 4px solid #28a745;
+    }
+    .alert-error {
+      background: rgba(220, 53, 69, 0.95);
+      color: white;
+      border-left: 4px solid #dc3545;
+    }
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #ffb347;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      background: #1a1a1a;
+      border-radius: 16px;
+    }
+    .fa-spin {
+      animation: fa-spin 2s infinite linear;
+    }
+    @keyframes fa-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .testimonial-card-admin {
+        flex-direction: column;
+      }
+      .delete-testimonial-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .card .image-pair {
+        flex-direction: column;
+      }
+      .alert {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="admin-container">
+  <div class="admin-header">
+    <h1><i class="fas fa-hard-hat"></i> ONSITE ONTIME CONCRETE</h1>
+    <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+  </div>
+
+  <div id="message"></div>
+
+  <!-- Sección para AGREGAR TRABAJO -->
+  <div class="section">
+    <h2><i class="fas fa-plus-circle"></i> Agregar nuevo trabajo realizado</h2>
+    <div class="add-work-form">
+      <form id="addWorkForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="fotoAntes"><i class="fas fa-image"></i> Foto ANTES:</label>
+          <input type="file" id="fotoAntes" name="fotoantes" accept="image/*" required>
+          <div class="preview-box" id="previewAntesContainer">
+            <label>Vista previa ANTES:</label>
+            <img id="previewAntes" src="" alt="Vista previa antes">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fotoDespues"><i class="fas fa-image"></i> Foto DESPUÉS:</label>
+          <input type="file" id="fotoDespues" name="fotodespues" accept="image/*" required>
+          <div class="preview-box" id="previewDespuesContainer">
+            <label>Vista previa DESPUÉS:</label>
+            <img id="previewDespues" src="" alt="Vista previa después">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lugar"><i class="fas fa-map-marker-alt"></i> Lugar:</label>
+          <input type="text" id="lugar" name="Lugar" placeholder="Ej: Tampa, FL">
+        </div>
+        <div class="form-group">
+          <label for="nombreProyecto"><i class="fas fa-tag"></i> Nombre del proyecto:</label>
+          <input type="text" id="nombreProyecto" name="Nombre" placeholder="Ej: Entrada Residencial">
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-upload"></i> Subir trabajo realizado
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sección para GESTIONAR TRABAJOS -->
+  <div class="section">
+    <h2><i class="fas fa-images"></i> Gestionar Trabajos Realizados</h2>
+    <div id="servicesList" class="grid">
+      <div class="loading"><i class="fas fa-spinner fa-spin"></i> Cargando trabajos...</div>
+    </div>
+  </div>
+
+  <!-- Sección para GESTIONAR TESTIMONIOS -->
+  <div class="section">
+    <h2><i class="fas fa-star"></i> Gestionar Testimonios</h2>
+    <div id="testimonialsList" class="testimonials-grid"></div>
+  </div>
+</div>
+
+<!-- Modal para editar trabajo -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <h3><i class="fas fa-edit"></i> Editar trabajo</h3>
+    <form id="editForm" enctype="multipart/form-data">
+      <input type="hidden" id="editId" name="id">
+      <div class="form-group">
+        <label>Foto ANTES (opcional):</label>
+        <input type="file" id="editFotoAntes" name="fotoantes" accept="image/*">
+        <small>Dejar vacío para mantener la actual</small>
+      </div>
+      <div class="form-group">
+        <label>Foto DESPUÉS (opcional):</label>
+        <input type="file" id="editFotoDespues" name="fotodespues" accept="image/*">
+        <small>Dejar vacío para mantener la actual</small>
+      </div>
+      <div class="form-group">
+        <label>Lugar:</label>
+        <input type="text" id="editLugar" name="Lugar" placeholder="Ej: Tampa, FL">
+      </div>
+      <div class="form-group">
+        <label>Nombre del proyecto:</label>
+        <input type="text" id="editNombre" name="Nombre" placeholder="Ej: Entrada Residencial">
+      </div>
+      <div class="modal-buttons">
+        <button type="submit" class="submit-btn">Guardar cambios</button>
+        <button type="button" class="submit-btn close-modal" onclick="closeModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ============================================
+  // CONFIGURACIÓN DE API
+  // ============================================
+  const getApiUrl = () => {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return 'http://localhost:3000/api/services';
+    }
+    return `${window.location.protocol}//${window.location.hostname}/api/services`;
+  };
+  
+  const API_URL = getApiUrl();
+  const REVIEWS_API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000/api/reviews'
+    : '/api/reviews';
+
+  console.log('API_URL:', API_URL);
+  console.log('REVIEWS_API_URL:', REVIEWS_API_URL);
+  
+  // Verificar autenticación
+const publicPages = ['login.html', 'index.html'];
+const currentPage = window.location.pathname.split('/').pop();
+
+if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn') !== 'true') {
+    // No redirigir automáticamente, solo mostrar mensaje
+    console.log('⚠️ No autenticado. Por favor inicia sesión.');
+}
+  
+  // ============================================
+  // PREVISUALIZACIÓN DE IMÁGENES
+  // ============================================
+  function setupImagePreview(inputId, previewId, containerId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    const container = document.getElementById(containerId);
+    
+    if (input) {
+      input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            preview.src = event.target.result;
+            container.classList.add('show');
+          };
+          reader.readAsDataURL(file);
+        } else {
+          container.classList.remove('show');
+          preview.src = '';
+        }
+      });
+    }
+  }
+  
+  setupImagePreview('fotoAntes', 'previewAntes', 'previewAntesContainer');
+  setupImagePreview('fotoDespues', 'previewDespues', 'previewDespuesContainer');
+  
+  // ============================================
+  // AGREGAR NUEVO TRABAJO (con FormData)
+  // ============================================
+  const addWorkForm = document.getElementById('addWorkForm');
+  
+  addWorkForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const fotoAntesFile = document.getElementById('fotoAntes').files[0];
+    const fotoDespuesFile = document.getElementById('fotoDespues').files[0];
+    const lugar = document.getElementById('lugar').value.trim();
+    const nombre = document.getElementById('nombreProyecto').value.trim();
+    
+    if (!fotoAntesFile || !fotoDespuesFile) {
+      showMessage('❌ Por favor, selecciona ambas imágenes (ANTES y DESPUÉS)', 'error');
+      return;
+    }
+    
+    const formData = new FormData();
+    formData.append('fotoantes', fotoAntesFile);
+    formData.append('fotodespues', fotoDespuesFile);
+    if (lugar) formData.append('Lugar', lugar);
+    if (nombre) formData.append('Nombre', nombre);
+    
+    const submitBtn = addWorkForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subiendo...';
+    submitBtn.disabled = true;
+    
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        showMessage('✅ Trabajo agregado exitosamente', 'success');
+        addWorkForm.reset();
+        document.getElementById('previewAntesContainer').classList.remove('show');
+        document.getElementById('previewDespuesContainer').classList.remove('show');
+        loadServices();
+      } else {
+        showMessage('❌ Error: ' + (result.message || 'No se pudo agregar el trabajo'), 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showMessage('❌ Error al conectar con el servidor', 'error');
+    } finally {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+  
+  // ============================================
+  // CARGAR TRABAJOS
+  // ============================================
+  async function loadServices() {
+    const container = document.getElementById('servicesList');
+    container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Cargando trabajos...</div>';
+    
+    try {
+      const response = await fetch(API_URL);
+      const result = await response.json();
+      
+      if (result.success && result.data.length > 0) {
+        container.innerHTML = result.data.map(service => `
+          <div class="card" data-id="${service.id}">
+            <div class="image-pair">
+              <div>
+                <img src="${service.fotoantes || 'https://placehold.co/300x200/2a2a2a/ffb347?text=ANTES'}" 
+                     alt="Antes" 
+                     onerror="this.src='https://placehold.co/300x200/2a2a2a/ffb347?text=ANTES'">
+                <span class="image-label">ANTES</span>
+              </div>
+              <div>
+                <img src="${service.fotodespues || 'https://placehold.co/300x200/2a2a2a/ffb347?text=DESPU%C3%89S'}" 
+                     alt="Después" 
+                     onerror="this.src='https://placehold.co/300x200/2a2a2a/ffb347?text=DESPU%C3%89S'">
+                <span class="image-label">DESPUÉS</span>
+              </div>
+            </div>
+            <small><i class="fas fa-map-marker-alt"></i> ${service.Lugar || 'No especificado'} | <i class="fas fa-calendar-alt"></i> ${new Date(service.createdAt).toLocaleDateString()}</small>
+            <small><strong>${service.Nombre || 'Proyecto'}</strong> | ID: ${service.id}</small>
+            <div class="card-actions">
+              <button class="edit-btn" onclick="openEditModal(${service.id})">
+                <i class="fas fa-edit"></i> Editar
+              </button>
+              <button class="delete-btn" onclick="deleteService(${service.id})">
+                <i class="fas fa-trash-alt"></i> Eliminar
+              </button>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><p>📭 No hay trabajos registrados. ¡Agrega el primero!</p></div>';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>❌ Error al cargar los trabajos</p></div>';
+    }
+  }
+  
+  // ============================================
+  // EDITAR TRABAJO
+  // ============================================
+  let currentEditId = null;
+  
+  async function openEditModal(id) {
+    currentEditId = id;
+    const modal = document.getElementById('editModal');
+    
+    try {
+      const response = await fetch(`${API_URL}/${id}`);
+      const result = await response.json();
+      
+      if (result.success && result.data) {
+        document.getElementById('editId').value = result.data.id;
+        document.getElementById('editLugar').value = result.data.Lugar || '';
+        document.getElementById('editNombre').value = result.data.Nombre || '';
+        modal.style.display = 'flex';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showMessage('❌ Error al cargar los datos del trabajo', 'error');
+    }
+  }
+  
+  function closeModal() {
+    document.getElementById('editModal').style.display = 'none';
+    document.getElementById('editForm').reset();
+    currentEditId = null;
+  }
+  
+  const editForm = document.getElementById('editForm');
+  editForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const id = document.getElementById('editId').value;
+    const lugar = document.getElementById('editLugar').value.trim();
+    const nombre = document.getElementById('editNombre').value.trim();
+    const fotoAntesFile = document.getElementById('editFotoAntes').files[0];
+    const fotoDespuesFile = document.getElementById('editFotoDespues').files[0];
+    
+    const formData = new FormData();
+    if (lugar) formData.append('Lugar', lugar);
+    if (nombre) formData.append('Nombre', nombre);
+    if (fotoAntesFile) formData.append('fotoantes', fotoAntesFile);
+    if (fotoDespuesFile) formData.append('fotodespues', fotoDespuesFile);
+    
+    const submitBtn = editForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+    submitBtn.disabled = true;
+    
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        showMessage('✅ Trabajo actualizado correctamente', 'success');
+        closeModal();
+        loadServices();
+      } else {
+        showMessage('❌ Error: ' + (result.message || 'No se pudo actualizar'), 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showMessage('❌ Error de conexión al actualizar', 'error');
+    } finally {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+  
+  // ============================================
+  // ELIMINAR TRABAJO
+  // ============================================
+  async function deleteService(id) {
+    if (confirm('⚠️ ¿Eliminar este trabajo permanentemente? Esta acción no se puede deshacer.')) {
+      try {
+        const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+        const result = await response.json();
+        
+        if (result.success) {
+          showMessage('✅ Trabajo eliminado correctamente', 'success');
+          loadServices();
+        } else {
+          showMessage('❌ Error: ' + (result.message || 'No se pudo eliminar'), 'error');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showMessage('❌ Error de conexión al eliminar', 'error');
+      }
+    }
+  }
+  
+  // ============================================
+  // CARGAR TESTIMONIOS
+  // ============================================
+  async function loadTestimonials() {
+    const container = document.getElementById('testimonialsList');
+    if (!container) return;
+    
+    container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Cargando testimonios...</div>';
+    
+    try {
+      const response = await fetch(REVIEWS_API_URL);
+      const result = await response.json();
+      
+      if (result.success && result.data && result.data.length > 0) {
+        container.innerHTML = result.data.map(review => `
+          <div class="testimonial-card-admin">
+            <div class="testimonial-content">
+              <div class="stars">${'⭐'.repeat(review.clasificacion)}</div>
+              <p>"${escapeHTML(review.descripcion)}"</p>
+              <strong>— ${escapeHTML(review.nombre)}</strong>
+              <small><i class="far fa-calendar-alt"></i> ${new Date(review.createdAt).toLocaleDateString()}</small>
+              <small style="display: block; margin-top: 0.3rem; color: #666;"><i class="fas fa-id-card"></i> ID: ${review.id}</small>
+            </div>
+            <button class="delete-testimonial-btn" onclick="deleteTestimonial(${review.id})">
+              <i class="fas fa-trash-alt"></i> Eliminar testimonio
+            </button>
+          </div>
+        `).join('');
+      } else {
+        container.innerHTML = '<div class="empty-state"><i class="fas fa-comment-slash"></i><p>📭 No hay testimonios registrados.</p></div>';
+      }
+    } catch (error) {
+      console.error('Error al cargar testimonios:', error);
+      container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>❌ Error al cargar testimonios. Verifica la conexión.</p></div>';
+    }
+  }
+  
+  // ============================================
+  // ELIMINAR TESTIMONIO
+  // ============================================
+  async function deleteTestimonial(id) {
+    if (!confirm('⚠️ ¿Eliminar este testimonio permanentemente? Esta acción no se puede deshacer.')) return;
+    
+    try {
+      const response = await fetch(`${REVIEWS_API_URL}/${id}`, { method: 'DELETE' });
+      const result = await response.json();
+      
+      if (result.success) {
+        showMessage('✅ Testimonio eliminado correctamente', 'success');
+        loadTestimonials();
+      } else {
+        showMessage('❌ Error: ' + (result.message || 'No se pudo eliminar'), 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showMessage('❌ Error de conexión al eliminar testimonio', 'error');
+    }
+  }
+  
+  // ============================================
+  // FUNCIONES AUXILIARES
+  // ============================================
+  function showMessage(msg, type) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.innerHTML = `<div class="alert alert-${type === 'success' ? 'success' : 'error'}">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i> ${msg}
+    </div>`;
+    setTimeout(() => {
+      messageDiv.innerHTML = '';
+    }, 4000);
+  }
+  
+  function escapeHTML(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  
+  function logout() {
+    sessionStorage.removeItem('adminLoggedIn');
+    window.location.href = 'index.html';
+  }
+  
+  // Cerrar modal al hacer clic fuera
+  window.onclick = function(event) {
+    const modal = document.getElementById('editModal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+  
+  // ============================================
+  // INICIALIZAR
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    loadServices();
+    loadTestimonials();
+  });
+</script>
+</body>
+</html>

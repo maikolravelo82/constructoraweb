@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONSITE ONTIME CONCRETE | Expertos en Tampa Bay</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ===== HERO SECTION (FONDO OSCURO) ===== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.85)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: rgba(0,0,0,.5);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .orange {
+      color: #ff7a00;
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .nav a:hover {
+      color: #ff7a00;
+    }
+
+    .phone {
+      background: #ff7a00;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .phone:hover {
+      background: #e06600;
+      transform: scale(1.02);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 40px;
+      padding: 20px 60px 30px 60px;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 70px;
+      font-weight: 900;
+      line-height: 1;
+      margin: 10px 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .highlight {
+      color: #ff7a00;
+    }
+
+    .text {
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .features {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature i {
+      color: #ff7a00;
+      font-size: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .phone-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid #ff7a00;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      color: #ff7a00;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .phone-number:hover {
+      background: #ff7a00;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .form {
+      background: rgba(0,0,0,.8);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .form h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .form h2 span {
+      color: #ff7a00;
+    }
+
+    .input {
+      width: 100%;
+      height: 45px;
+      margin-bottom: 10px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 0 15px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: #ff7a00;
+    }
+
+    textarea.input {
+      height: 70px;
+      padding-top: 12px;
+      resize: none;
+    }
+
+    select.input {
+      cursor: pointer;
+    }
+
+    select.input option {
+      background: #1c1c1c;
+    }
+
+    .submit {
+      width: 100%;
+      height: 45px;
+      border: none;
+      background: #ff7a00;
+      color: #fff;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .submit:hover {
+      background: #e06600;
+      transform: translateY(-2px);
+    }
+
+    /* ===== RECTÁNGULO DE ESTADÍSTICAS ===== */
+    .stats-overlay {
+      position: relative;
+      z-index: 20;
+      margin-top: -40px;
+      margin-bottom: -40px;
+    }
+
+    .stats-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .stats-group {
+      background: #fafafa;
+      border-radius: 24px;
+      padding: 20px 32px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: #fff0e6;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #e86b10;
+    }
+
+    .stat-info strong {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: #e86b10;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .stat-info .stat-title {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+      line-height: 1.3;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .stat-info .stat-sub {
+      font-size: 0.65rem;
+      color: #8a6e5a;
+      margin-top: 3px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .link-light {
+      color: #e86b10;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed #ffccaa;
+      font-size: 0.65rem;
+    }
+
+    .link-light:hover {
+      color: #cc5500;
+    }
+
+    .stat-item:not(:last-child) {
+      border-right: 1px solid #e8e8e8;
+      padding-right: 20px;
+    }
+
+    /* ===== SECCIÓN DE SERVICIOS (FONDO BLANCO) ===== */
+    .services-section {
+      background: #ffffff;
+      padding: 70px 24px 30px 24px;
+    }
+
+    .services-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    .two-column-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .left-services {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-badge {
+      color: #e86b10;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .section-badge i {
+      font-size: 1rem;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #2c2c2c;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #6b6b6b;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px 25px;
+    }
+
+    .service-simple {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .service-simple i {
+      width: 35px;
+      font-size: 1.2rem;
+      color: #e86b10;
+    }
+
+    .service-simple span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .right-panels {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .info-panel {
+      background: #fafafa;
+      padding: 16px 20px;
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .info-panel:first-child {
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      border-bottom: none;
+    }
+
+    .info-panel:last-child {
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+
+    .info-panel:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .info-panel h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #2c2c2c;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .info-panel h3 i {
+      color: #e86b10;
+      font-size: 1.1rem;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2c2c2c;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .check-list li i {
+      width: 22px;
+      font-size: 0.9rem;
+      color: #e86b10;
+    }
+
+    .extra-badge {
+      background: #ffffff;
+      border-radius: 50px;
+      padding: 5px 14px;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #e86b10;
+      margin-top: 10px;
+      border: 1px solid #f0f0f0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== SECCIÓN DE PORTAFOLIO (FONDO NEGRO) ===== */
+    .portfolio-section {
+      background: #0a0a0a;
+      padding: 20px 24px 0 24px;
+    }
+
+    .portfolio-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .header-left {
+      text-align: left;
+    }
+
+    .portfolio-badge {
+      color: #e86b10;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .portfolio-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-sub {
+      font-size: 0.75rem;
+      color: #aaaaaa;
+    }
+
+    .btn-view-all {
+      background: transparent;
+      border: 2px solid #e86b10;
+      color: #e86b10;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-view-all:hover {
+      background: #e86b10;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      transition: all 0.3s;
+    }
+
+    .projects-grid.expanded {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #2a2a2a;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.1s; }
+    .project-card:nth-child(3) { animation-delay: 0.15s; }
+    .project-card:nth-child(4) { animation-delay: 0.2s; }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .image-box {
+      position: relative;
+      overflow: hidden;
+      min-height: 80px;
+      background: #2a2a2a;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .image-box:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-label {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      background: rgba(232, 107, 16, 0.9);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .image-label.right {
+      left: auto;
+      right: 4px;
+    }
+
+    .project-info {
+      padding: 8px 6px;
+      text-align: center;
+    }
+
+    .project-title-card {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .project-location {
+      font-size: 0.55rem;
+      color: #e86b10;
+      font-weight: 500;
+    }
+
+    .extra-projects {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .extra-projects.show {
+      display: block;
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .hide-btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn-hide {
+      background: transparent;
+      border: 1px solid #444;
+      color: #aaaaaa;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-hide:hover {
+      border-color: #e86b10;
+      color: #e86b10;
+    }
+
+    /* ===== SECCIÓN "¿POR QUÉ ELEGIRNOS?" ===== */
+    .why-choose-us {
+      background: #ffffff;
+      padding: 30px 24px;
+      margin: 0 auto;
+    }
+
+    .why-choose-us .section-header {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .why-choose-us .section-badge {
+      color: #e86b10;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: flex-start;
+    }
+
+    .why-choose-us .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .why-choose-us .section-subtitle {
+      font-size: 0.8rem;
+      color: #6b6b6b;
+      max-width: 600px;
+      margin-left: 0;
+      text-align: left;
+    }
+
+    .why-choose-us .features-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .why-choose-us .feature-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      padding: 15px 10px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+    }
+
+    .why-choose-us .feature-card:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .why-choose-us .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: #fff0e6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #e86b10;
+      margin: 0 auto;
+    }
+
+    .why-choose-us .feature-content h3 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #2c2c2c;
+      margin-bottom: 4px;
+    }
+
+    .why-choose-us .feature-content p {
+      font-size: 0.65rem;
+      color: #6b6b6b;
+      line-height: 1.3;
+    }
+
+    /* ===== SECCIÓN: TESTIMONIOS, PAGOS Y CONTACTO ===== */
+    .testimonios-pagos-section {
+      background: #f5f5f5;
+      padding: 30px 20px;
+      margin-top: 0;
+    }
+
+    .testimonios-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 20px 15px;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      width: 95%;
+      margin: 0 auto;
+      max-width: 1400px;
+    }
+
+    .testimonios-column {
+      flex: 1;
+      margin: 0 10px;
+      padding: 10px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      position: relative;
+    }
+
+    .testimonios-column:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 10%;
+      height: 80%;
+      width: 2px;
+      background: #ff6600;
+      opacity: 0.5;
+    }
+
+    .testimonios-column h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .crear-testimonio-btn, .ver-mas {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 6px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+    }
+
+    .crear-testimonio-btn:hover, .ver-mas:hover {
+      text-decoration: underline;
+    }
+
+    .cerrar-form-btn {
+      background: #999;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    .cerrar-form-btn:hover {
+      background: #666;
+    }
+
+    #formTestimonio {
+      display: none;
+      margin-top: 8px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    #formTestimonio input, #formTestimonio textarea {
+      width: 100%;
+      margin: 4px 0;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+
+    #formTestimonio button {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .testimonios-lista {
+      margin-top: 12px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .testimonio-item {
+      background: #f9f9f9;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border-left: 2px solid #ff6600;
+    }
+
+    .testimonio-nombre {
+      font-weight: bold;
+      color: #ff6600;
+      font-size: 10px;
+    }
+
+    .testimonio-texto {
+      font-size: 10px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .pagos-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .pagos-icons div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .pagos-icons i { 
+      font-size: 32px; 
+      margin-bottom: 4px;
+    }
+    .pagos-icons span { 
+      font-size: 10px; 
+      margin-top: 2px; 
+      color: #444;
+      font-weight: 500;
+    }
+
+    .fa-money-bill-wave { color: green; }
+    .fa-building-columns { color: purple; }
+    .fa-credit-card { color: blue; }
+    .fa-paypal { color: #003087; }
+    .fa-mobile-screen { color: #ff6600; }
+
+    .contacto-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 5px;
+    }
+
+    .contacto-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .contacto-item i {
+      width: 24px;
+      font-size: 14px;
+      color: #ff6600;
+      text-align: center;
+    }
+
+    .contacto-item a, .contacto-item span {
+      color: #333;
+      text-decoration: none;
+      font-size: 11px;
+      transition: color 0.3s;
+    }
+
+    .contacto-item a:hover {
+      color: #ff6600;
+    }
+
+    /* Footer */
+    .main-footer {
+      background-color: #222;
+      color: #fff;
+      padding: 30px 20px;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      margin: 8px;
+      min-width: 180px;
+    }
+
+    .footer-column:nth-child(2) {
+      text-align: center;
+    }
+
+    .footer-column:nth-child(3) {
+      text-align: left;
+    }
+
+    .footer-column:nth-child(4) {
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: #ff6600;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 8px 20px;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #ff6600;
+    }
+
+    .zona-lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .zona-item {
+      background: rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .footer-social {
+      margin-top: 12px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-social a {
+      color: #fff;
+      font-size: 28px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-3px);
+    }
+
+    .footer-social a:hover .fa-instagram {
+      color: #E1306C;
+    }
+
+    .footer-social a:hover .fa-tiktok {
+      color: #00f2ea;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 12px;
+      color: #ccc;
+      padding-top: 15px;
+      border-top: 1px solid #444;
+    }
+
+    @media (max-width: 1200px) {
+      .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .projects-grid.expanded {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .extra-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .why-choose-us .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .nav {
+        padding: 15px 30px;
+        justify-content: center;
+        text-align: center;
+      }
+      .nav ul {
+        display: none;
+      }
+      .container {
+        grid-template-columns: 1fr;
+        padding: 20px 30px 25px 30px;
+      }
+      .title {
+        font-size: 45px;
+      }
+      .stats-container {
+        padding: 0 30px;
+      }
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .stat-item:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+      }
+      .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stats-group {
+        padding: 20px;
+      }
+      .services-section {
+        padding-top: 60px;
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .projects-grid.expanded {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .portfolio-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-left {
+        text-align: center;
+      }
+      .why-choose-us .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-choose-us .section-title {
+        font-size: 1.2rem;
+      }
+      .testimonios-container {
+        flex-direction: column;
+      }
+      .testimonios-column:not(:last-child)::after {
+        display: none;
+      }
+      .testimonios-column {
+        margin: 8px 0;
+      }
+      .pagos-icons {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+      .footer-social {
+        justify-content: center;
+      }
+      .footer-column:nth-child(3),
+      .footer-column:nth-child(4) {
+        text-align: center;
+      }
+      .zona-lista {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 32px;
+      }
+      .features {
+        gap: 12px;
+      }
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .phone-number {
+        text-align: center;
+        justify-content: center;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .stats-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .stats-group {
+        padding: 15px;
+      }
+      .stat-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 20px;
+      }
+      .stats-overlay {
+        margin-top: -30px;
+        margin-bottom: -30px;
+      }
+      .services-section {
+        padding-top: 50px;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid.expanded {
+        grid-template-columns: 1fr;
+      }
+      .extra-grid {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-title {
+        font-size: 1.2rem;
+      }
+      .why-choose-us .features-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .why-choose-us .feature-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+        padding: 12px;
+      }
+      .why-choose-us .feature-icon {
+        margin: 0;
+      }
+      .why-choose-us .section-title {
+        font-size: 1.1rem;
+      }
+      .why-choose-us {
+        padding: 20px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SECCIÓN HERO (FONDO OSCURO) -->
+<section class="hero">
+  <nav class="nav">
+    <div class="logo">
+      <span class="orange">ONSITE</span> | ONTIME
+    </div>
+    <ul>
+      <li><a href="#">INICIO</a></li>
+      <li><a href="#servicios">SERVICIOS</a></li>
+      <li><a href="#trabajos">PROYECTOS</a></li>
+      <li><a href="#nosotros">NOSOTROS</a></li>
+      <li><a href="#contacto-section">CONTACTO</a></li>
+    </ul>
+    <a href="tel:+18135167681" class="phone">
+      <i class="fa fa-phone"></i> +1 (813) 516-7681
+    </a>
+  </nav>
+
+  <div class="container">
+    <div>
+      <p>EXPERTOS EN <span class="orange">CONCRETO EN TAMPA BAY</span></p>
+      <h1 class="title">
+        CEMENTAMOS<br>
+        TUS PROYECTOS,<br>
+        <span class="highlight">CONSTRUIMOS<br>CONFIANZA</span>
+      </h1>
+      <p class="text">Más de 3 años transformando superficies en Tampa Bay con calidad, rapidez y garantía.</p>
+      <div class="features">
+        <div class="feature"><i class="fa-solid fa-bolt"></i><span>Rapidez Garantizada</span></div>
+        <div class="feature"><i class="fa-solid fa-medal"></i><span>Acabados de Calidad</span></div>
+        <div class="feature"><i class="fa-solid fa-certificate"></i><span>Garantía 6 meses</span></div>
+      </div>
+      <div class="buttons">
+        <a href="tel:+18135167681" class="phone-number"><i class="fa-solid fa-phone"></i> +1 (813) 516-7681</a>
+      </div>
+    </div>
+
+    <div class="form">
+      <h2>PRESUPUESTO <span>GRATIS</span></h2>
+      <form id="form">
+        <input type="text" class="input" placeholder="Nombre completo" id="nombre" required>
+        <select class="input" id="tipoTrabajo" name="tipoTrabajo" title="Seleccione el tipo de trabajo que necesita">
+          <option value="">Tipo de trabajo</option>
+          <option value="Driveway">Driveway / Entrada auto</option>
+          <option value="Patio">Patio / Losas</option>
+          <option value="Sidewalk">Sidewalk / Veredas</option>
+          <option value="Foundation">Foundation / Cimientos</option>
+          <option value="Nivelacion">Nivelación de terreno</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <input type="tel" class="input" placeholder="Teléfono / WhatsApp" id="telefono" required>
+        <textarea class="input" placeholder="Descripción adicional (metros, detalles...)" id="descripcion"></textarea>
+        <button type="submit" class="submit">ENVIAR SOLICITUD</button>
+      </form>
+      <p style="font-size: 10px; text-align: center; margin-top: 8px; color: #aaa;"><i class="fa-regular fa-clock"></i> Respondemos en menos de 24 horas</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECTÁNGULO DE ESTADÍSTICAS -->
+<div class="stats-overlay">
+  <div class="stats-container">
+    <div class="stats-group">
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-regular fa-calendar"></i></div>
+          <div class="stat-info">
+            <strong>EXPERIENCIA</strong>
+            <div class="stat-title">Desde 2023<br>+3 años en el mercado</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="stat-info">
+            <strong>ZONA DE SERVICIO</strong>
+            <div class="stat-title">Tampa Bay y alrededores</div>
+            <div class="stat-sub"><a href="#" class="link-light" id="ciudadesLink">Ver ciudades →</a></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
+          <div class="stat-info">
+            <strong>HORARIO</strong>
+            <div class="stat-title">Lunes a Domingo<br>24 horas / 7 días</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <div class="stat-info">
+            <strong>SEGURO</strong>
+            <div class="stat-title">Responsabilidad civil vigente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN DE SERVICIOS (FONDO BLANCO) -->
+<section class="services-section" id="servicios">
+  <div class="services-wrapper">
+    <div class="two-column-layout">
+      <div class="left-services">
+        <div class="section-badge"><i class="fa-solid fa-cubes"></i> NUESTROS SERVICIOS</div>
+        <h2 class="main-title">Soluciones en concreto para todo tipo de proyectos</h2>
+        <p class="description">Ofrecemos servicios completos de cementado, desde preparación del terreno hasta acabados profesionales. Calidad y rapidez garantizada en cada proyecto.</p>
+        <div class="services-grid">
+          <div class="service-simple"><i class="fa-solid fa-tree"></i> <span>Patios</span></div>
+          <div class="service-simple"><i class="fa-solid fa-car"></i> <span>Driveways (Entradas)</span></div>
+          <div class="service-simple"><i class="fa-solid fa-person-walking"></i> <span>Sidewalks (Veredas)</span></div>
+          <div class="service-simple"><i class="fa-solid fa-layer-group"></i> <span>Slabs (Losas)</span></div>
+          <div class="service-simple"><i class="fa-solid fa-building"></i> <span>Foundations (Cimientos)</span></div>
+          <div class="service-simple"><i class="fa-solid fa-arrows-up-down"></i> <span>Nivelación de terrenos</span></div>
+          <div class="service-simple"><i class="fa-solid fa-water"></i> <span>Instalación de desagües</span></div>
+          <div class="service-simple"><i class="fa-solid fa-screwdriver-wrench"></i> <span>Reparaciones Grietas y desniveles</span></div>
+        </div>
+      </div>
+      <div class="right-panels">
+        <div class="info-panel">
+          <h3><i class="fa-solid fa-paintbrush"></i> ACABADOS DISPONIBLES</h3>
+          <ul class="check-list">
+            <li><i class="fa-regular fa-circle-check"></i> Cemento alisado tradicional</li>
+            <li><i class="fa-regular fa-circle-check"></i> Cemento pulido (acabado brillante)</li>
+            <li><i class="fa-regular fa-circle-check"></i> Hormigón visto</li>
+            <li><i class="fa-regular fa-circle-check"></i> <strong>Bajo pedido:</strong> estampado / coloreado</li>
+          </ul>
+          <div class="extra-badge"><i class="fa-regular fa-star"></i> Personalizamos texturas y colores</div>
+        </div>
+        <div class="info-panel">
+          <h3><i class="fa-solid fa-gear"></i> SERVICIOS ADICIONALES</h3>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-hammer"></i> Demolición y remoción de cemento viejo</li>
+            <li><i class="fa-solid fa-draw-polygon"></i> Nivelación de terrenos</li>
+            <li><i class="fa-solid fa-water-ladder"></i> Colocación de desagües y pendientes</li>
+            <li><i class="fa-solid fa-umbrella"></i> Impermeabilización básica</li>
+          </ul>
+          <div class="extra-badge"><i class="fa-regular fa-clock"></i> Rapidez garantizada · Garantía 6 meses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN DE TRABAJOS / PORTAFOLIO -->
+<section class="portfolio-section" id="trabajos">
+  <div class="portfolio-container">
+    <div class="portfolio-header">
+      <div class="header-left">
+        <div class="portfolio-badge"><i class="fa-solid fa-images"></i> PORTAFOLIO</div>
+        <h2 class="portfolio-title">NUESTROS TRABAJOS</h2>
+        <p class="portfolio-sub">Antes y después que hablan por nosotros</p>
+      </div>
+      <div class="view-all-btn">
+        <button class="btn-view-all" id="viewAllBtn">
+          <i class="fa-solid fa-arrow-right"></i> VER TODOS LOS PROYECTOS
+        </button>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="mainProjectsGrid">
+      <div class="project-card">
+        <div class="image-comparison">
+          <div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Entrada residencial - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div>
+          <div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga2.jpg" alt="Entrada residencial - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div>
+        </div>
+        <div class="project-info"><h3 class="project-title-card">Entrada Residencial</h3><p class="project-location">Tampa, FL</p></div>
+      </div>
+      <div class="project-card">
+        <div class="image-comparison">
+          <div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga2.jpg" alt="Patio trasero - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div>
+          <div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Patio trasero - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div>
+        </div>
+        <div class="project-info"><h3 class="project-title-card">Patio Trasero</h3><p class="project-location">Brandon, FL</p></div>
+      </div>
+      <div class="project-card">
+        <div class="image-comparison">
+          <div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga3.jpg" alt="Losa construcción - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div>
+          <div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Losa construcción - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div>
+        </div>
+        <div class="project-info"><h3 class="project-title-card">Losa para Construcción</h3><p class="project-location">Riverview, FL</p></div>
+      </div>
+      <div class="project-card">
+        <div class="image-comparison">
+          <div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga4.jpg" alt="Nivelación terreno - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div>
+          <div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Nivelación terreno - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div>
+        </div>
+        <div class="project-info"><h3 class="project-title-card">Nivelación de Terreno</h3><p class="project-location">Wesley Chapel, FL</p></div>
+      </div>
+      <div class="project-card">
+        <div class="image-comparison">
+          <div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto extra 1" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div>
+          <div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga3.jpg" alt="Proyecto extra 1" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div>
+        </div>
+        <div class="project-info"><h3 class="project-title-card">Estacionamiento</h3><p class="project-location">St. Petersburg, FL</p></div>
+      </div>
+    </div>
+
+    <div class="extra-projects" id="extraProjects">
+      <div class="extra-grid">
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 5 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div><div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga2.jpg" alt="Proyecto 5 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div></div><div class="project-info"><h3 class="project-title-card">Calle Principal</h3><p class="project-location">Downtown Tampa, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga3.jpg" alt="Proyecto 6 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div><div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 6 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div></div><div class="project-info"><h3 class="project-title-card">Estacionamiento Comercial</h3><p class="project-location">St. Petersburg, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 7 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div><div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga4.jpg" alt="Proyecto 7 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div></div><div class="project-info"><h3 class="project-title-card">Sendero Residencial</h3><p class="project-location">Clearwater, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga2.jpg" alt="Proyecto 8 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div><div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 8 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div></div><div class="project-info"><h3 class="project-title-card">Plaza Pública</h3><p class="project-location">Brandon, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 9 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div><div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga3.jpg" alt="Proyecto 9 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div></div><div class="project-info"><h3 class="project-title-card">Garaje Subterráneo</h3><p class="project-location">Riverview, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga4.jpg" alt="Proyecto 10 - Después" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div><div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 10 - Antes" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div></div><div class="project-info"><h3 class="project-title-card">Piscina y Deck</h3><p class="project-location">Wesley Chapel, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 11" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div><div class="image-box"><span class="image-label right">DESPUÉS</span><img src="imagen/descarga2.jpg" alt="Proyecto 11" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div></div><div class="project-info"><h3 class="project-title-card">Sendero Parque</h3><p class="project-location">Tampa, FL</p></div></div>
+        <div class="project-card"><div class="image-comparison"><div class="image-box"><span class="image-label">DESPUÉS</span><img src="imagen/descarga3.jpg" alt="Proyecto 12" onerror="this.src='https://placehold.co/400x200/333333/e86b10?text=DESPU%C3%89S'"></div><div class="image-box"><span class="image-label right">ANTES</span><img src="imagen/descarga1.jpg" alt="Proyecto 12" onerror="this.src='https://placehold.co/400x200/2a2a2a/e86b10?text=ANTES'"></div></div><div class="project-info"><h3 class="project-title-card">Driveway Doble</h3><p class="project-location">Brandon, FL</p></div></div>
+      </div>
+      <div class="hide-btn">
+        <button class="btn-hide" id="hideExtraBtn"><i class="fa-solid fa-chevron-up"></i> MOSTRAR MENOS</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN "¿POR QUÉ ELEGIRNOS?" -->
+<section class="why-choose-us" id="nosotros">
+  <div class="section-header">
+    <div class="section-badge">
+      <i class="fa-solid fa-star"></i> VENTAJAS
+    </div>
+    <h2 class="section-title">¿POR QUÉ ELEGIRNOS?</h2>
+    <p class="section-subtitle">Razones que nos convierten en tu mejor opción para proyectos de concreto</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+      <div class="feature-content">
+        <h3>Mayor Rapidez</h3>
+        <p>Cumplimos tiempos acordados</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+      <div class="feature-content">
+        <h3>Acabados de Calidad</h3>
+        <p>Detalles que marcan la diferencia</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+      <div class="feature-content">
+        <h3>Garantía</h3>
+        <p>6 meses en fisuras estructurales</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="feature-content">
+        <h3>Experiencia</h3>
+        <p>Desde 2023 con +  de 20  obras 
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+      <div class="feature-content">
+        <h3>Atención Personalizada</h3>
+        <p>Siempre el mismo encargado</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-regular fa-handshake"></i></div>
+      <div class="feature-content">
+        <h3>Confianza Total</h3>
+        <p>Compromiso y seriedad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: TESTIMONIOS, PAGOS Y CONTACTO (CORREGIDA) -->
+<section class="testimonios-pagos-section" id="contacto-section">
+  <div class="testimonios-container">
+    <div class="testimonios-column">
+      <h2>LO QUE DICEN NUESTROS CLIENTES</h2>
+      <div>
+        <a href="javascript:void(0)" class="crear-testimonio-btn" onclick="mostrarFormulario(); return false;">Crear comentario</a>
+        <a href="javascript:void(0)" class="ver-mas" onclick="cargarTestimonios(); return false;">Leer comentarios →</a>
+        <button class="cerrar-form-btn" onclick="cerrarFormulario()" style="display:none;" id="btnCerrarForm">Cerrar</button>
+      </div>
+
+      <form id="formTestimonio" onsubmit="return guardarTestimonio()">
+        <input type="text" id="nombreTestimonio" placeholder="Nombre completo" required>
+        <input type="email" id="correoTestimonio" placeholder="Correo electrónico" required>
+        <textarea id="comentarioTestimonio" placeholder="Escribe tu comentario" required></textarea>
+        <button type="submit">Enviar comentario</button>
+      </form>
+
+      <div id="testimoniosLista" class="testimonios-lista">
+        <div class="testimonio-item" id="primerTestimonio">
+          <div class="testimonio-nombre">Mike, Tampa</div>
+          <div class="testimonio-texto">"Llegaron un domingo, cementaron mi entrada y el lunes ya estacionaba. 10/10"</div>
+        </div>
+        <div class="testimonio-item">
+          <div class="testimonio-nombre">Laura, Clearwater</div>
+          <div class="testimonio-texto">"Me nivelaron el terreno para una losa de 40 m², impecable los desagües."</div>
+        </div>
+        <div class="testimonio-item">
+          <div class="testimonio-nombre">Carlos, Tampa</div>
+          <div class="testimonio-texto">"Excelente servicio, muy profesionales y puntuales. Recomendados 100%"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonios-column">
+      <h2>FORMAS DE PAGO</h2>
+      <div class="pagos-icons">
+        <div><i class="fa-solid fa-money-bill-wave"></i><span>Efectivo</span></div>
+        <div><i class="fa-solid fa-building-columns"></i><span>Zelle</span></div>
+        <div><i class="fa-solid fa-credit-card"></i><span>Tarjeta</span></div>
+        <div><i class="fa-brands fa-paypal"></i><span>PayPal</span></div>
+        <div><i class="fa-solid fa-mobile-screen"></i><span>CashApp</span></div>
+      </div>
+    </div>
+
+    <div class="testimonios-column">
+      <h2>CONTACTO</h2>
+      <div class="contacto-info">
+        <div class="contacto-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+18135167681">+1 (813) 516-7681</a>
+        </div>
+        <div class="contacto-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:onsiteontimeconcrete@gmail.com">onsiteontimeconcrete@gmail.com</a>
+        </div>
+        <div class="contacto-item">
+          <i class="fa-brands fa-instagram"></i>
+          <a href="https://www.instagram.com/onsite_ontime" target="_blank" rel="noopener noreferrer">@onsite_ontime</a>
+        </div>
+        <div class="contacto-item">
+          <i class="fa-brands fa-tiktok"></i>
+          <a href="https://www.tiktok.com/@onsite.ontime.com" target="_blank" rel="noopener noreferrer">@onsite.ontime.com</a>
+        </div>
+        <div class="contacto-item">
+          <i class="fa-regular fa-clock"></i>
+          <span>Siempre disponibles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3 style="color:#ff6600;">ONSITE ONTIME CONCRETE</h3>
+      <p>Transformamos tus ideas en estructuras sólidas y duraderas. Calidad, rapidez y confianza en cada proyecto.</p>
+    </div>
+    <div class="footer-column">
+      <h3>ENLACES RÁPIDOS</h3>
+      <div class="footer-links">
+        <a href="#">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Proyectos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto-section">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>ZONA DE SERVICIO</h3>
+      <div class="zona-lista">
+        <span class="zona-item">Tampa</span>
+        <span class="zona-item">St. Petersburg</span>
+        <span class="zona-item">Clearwater</span>
+        <span class="zona-item">Brandon</span>
+        <span class="zona-item">Riverview</span>
+        <span class="zona-item">Wesley Chapel</span>
+        <span class="zona-item">Alrededores</span>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>SÍGUENOS</h3>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/onsite_ontime" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@onsite.ontime.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Onsite Ontime Concrete. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- MODAL CIUDADES -->
+<div id="modalCiudades" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); align-items: center; justify-content: center; z-index: 2000;">
+  <div style="background: white; max-width: 380px; width: 85%; border-radius: 32px; padding: 28px; text-align: center; box-shadow: 0 20px 30px rgba(0,0,0,0.2);">
+    <i class="fa-solid fa-city" style="font-size: 40px; color: #e86b10;"></i>
+    <h3 style="margin: 12px 0 6px; color:#2c2c2c;">Área de cobertura</h3>
+    <p style="color:#6b6b6b;">Tampa, St. Petersburg, Clearwater, Brandon, Riverview, Wesley Chapel y toda el área de Tampa Bay.</p>
+    <button id="closeModal" style="background: #e86b10; border: none; padding: 8px 28px; border-radius: 40px; color: white; font-weight: 700; margin-top: 20px; cursor: pointer;">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  // Formulario principal (presupuesto)
+  const form = document.getElementById('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    if (!nombre || !telefono) {
+      alert('Por favor, ingresa tu nombre y teléfono para continuar.');
+      return;
+    }
+    const tipoTrabajoSelect = document.getElementById('tipoTrabajo');
+    const tipoTrabajoText = tipoTrabajoSelect.options[tipoTrabajoSelect.selectedIndex]?.text || 'No especificado';
+    const tipoTrabajoValue = tipoTrabajoSelect.value;
+    const trabajoFinal = tipoTrabajoValue ? tipoTrabajoText : 'No especificado';
+    const descripcion = document.getElementById('descripcion').value.trim();
+    const numeroWhatsApp = '18135167681';
+    let mensaje = `🟠 *COTIZACIÓN ONSITE ONTIME CONCRETE*%0A`;
+    mensaje += `*Nombre:* ${nombre}%0A`;
+    mensaje += `*Teléfono:* ${telefono}%0A`;
+    mensaje += `*Tipo de trabajo:* ${trabajoFinal}%0A`;
+    if (descripcion) mensaje += `*Detalles:* ${descripcion}%0A`;
+    mensaje += `%0A🛠️ Solicitud desde la web oficial.`;
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank', 'noopener,noreferrer');
+    alert('✅ Redirigiendo a WhatsApp para completar tu cotización. ¡Gracias por contactarnos!');
+    form.reset();
+  });
+
+  // Enlaces internos suaves
+  document.querySelectorAll('.nav a, .phone, .phone-number').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#' && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Modal: ver ciudades
+  const link = document.getElementById('ciudadesLink');
+  const modal = document.getElementById('modalCiudades');
+  const closeBtn = document.getElementById('closeModal');
+  if (link) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  // Portafolio: Ver todos / Mostrar menos
+  const viewAllBtn = document.getElementById('viewAllBtn');
+  const extraProjects = document.getElementById('extraProjects');
+  const hideExtraBtn = document.getElementById('hideExtraBtn');
+  const mainGrid = document.getElementById('mainProjectsGrid');
+
+  if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', function() {
+      extraProjects.classList.add('show');
+      mainGrid.classList.add('expanded');
+      viewAllBtn.style.display = 'none';
+      setTimeout(() => {
+        extraProjects.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    });
+  }
+
+  if (hideExtraBtn) {
+    hideExtraBtn.addEventListener('click', function() {
+      extraProjects.classList.remove('show');
+      mainGrid.classList.remove('expanded');
+      viewAllBtn.style.display = 'inline-flex';
+      viewAllBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  // Funciones para testimonios
+  function mostrarFormulario() {
+    const formTestimonio = document.getElementById('formTestimonio');
+    formTestimonio.style.display = 'block';
+    document.getElementById('btnCerrarForm').style.display = 'inline-block';
+    document.getElementById('nombreTestimonio').focus();
+    return false;
+  }
+
+  function cerrarFormulario() {
+    document.getElementById('formTestimonio').style.display = 'none';
+    document.getElementById('btnCerrarForm').style.display = 'none';
+    document.getElementById('formTestimonio').reset();
+  }
+
+  function guardarTestimonio() {
+    const nombre = document.getElementById('nombreTestimonio').value.trim();
+    const correo = document.getElementById('correoTestimonio').value.trim();
+    const comentario = document.getElementById('comentarioTestimonio').value.trim();
+    
+    if (!nombre || !correo || !comentario) {
+      alert('Por favor, completa todos los campos.');
+      return false;
+    }
+    
+    if (!correo.includes('@')) {
+      alert('Por favor, ingresa un correo electrónico válido.');
+      return false;
+    }
+    
+    const lista = document.getElementById('testimoniosLista');
+    const nuevoTestimonio = document.createElement('div');
+    nuevoTestimonio.className = 'testimonio-item';
+    nuevoTestimonio.innerHTML = `
+      <div class="testimonio-nombre">${nombre}</div>
+      <div class="testimonio-texto">"${comentario}"</div>
+    `;
+    lista.insertBefore(nuevoTestimonio, lista.firstChild);
+    
+    alert('¡Gracias por tu comentario! Ha sido agregado.');
+    cerrarFormulario();
+    return false;
+  }
+
+  function cargarTestimonios() {
+    const primerComentario = document.getElementById('testimoniosLista').firstChild;
+    if (primerComentario) {
+      primerComentario.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      primerComentario.style.backgroundColor = '#fff0e6';
+      setTimeout(() => {
+        primerComentario.style.backgroundColor = '';
+      }, 1500);
+    }
+    return false;
+  }
+
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      const parentBox = this.parentElement;
+      const label = parentBox ? parentBox.querySelector('.image-label') : null;
+      const text = label ? label.innerText : 'Imagen';
+      this.src = `https://placehold.co/400x200/2a2a2a/e86b10?text=${encodeURIComponent(text)}`;
+    });
+  });
+</script>
+
+</body>
+</html>
