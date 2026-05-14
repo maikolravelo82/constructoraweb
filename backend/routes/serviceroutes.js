@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../middleware/upload');
-const serviceController = require('../controllers/serviceController');
+const serviceController = require('../controllers/servicecontroller');
 
 // Configurar campos para múltiples archivos
 const uploadFields = upload.fields([
