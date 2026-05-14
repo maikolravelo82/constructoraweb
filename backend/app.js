@@ -51,13 +51,15 @@ app.use((req, res, next) => {
 });
 
 // sincronizar base de datos y levantar servidor
-async function startServer() {  // ✅ CORREGIDO: startServer (estándar camelCase)
+// sincronizar base de datos y levantar servidor
+async function startServer() {
     try {
         await sequelize.sync({ force: false });
         console.log('📦 base de datos sincronizada');
         
-        app.listen(port, () => {
-            console.log(`🔥 servidor corriendo en http://localhost:${port}`);
+        // 🔥 CAMBIO IMPORTANTE: Escuchar en 0.0.0.0
+        app.listen(port, '0.0.0.0', () => {
+            console.log(`🔥 servidor corriendo en puerto ${port}`);
         });
     } catch (error) {
         console.error('❌ error:', error);
