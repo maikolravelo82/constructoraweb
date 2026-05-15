@@ -56,25 +56,22 @@ const getservicebyid = async (req, res) => {
 // ============================================
 const createservice = async (req, res) => {
     try {
-        // Verificar que lleguen los archivos
-        if (!req.files || !req.files.fotoantes || !req.files.fotodespues) {
+        // Verificar que llegue el archivo
+        if (!req.files || !req.files.foto) {
             return res.status(400).json({
                 success: false,
-                message: 'Debes subir ambas imágenes (ANTES y DESPUÉS)'
+                message: 'Debes subir una imagen'
             });
         }
 
-        // Multer-Storage-Cloudinary ya subió las imágenes
-        // Solo necesitamos las URLs que Cloudinary devuelve
-        const fotoAntesUrl = req.files.fotoantes[0].path; // Cloudinary URL
-        const fotoDespuesUrl = req.files.fotodespues[0].path; // Cloudinary URL
+        // Multer-Storage-Cloudinary ya subió la imagen
+        const fotoUrl = req.files.foto[0].path; // Cloudinary URL
         
         const { Lugar, Nombre } = req.body;
 
-        // Guardar en la base de datos (solo las URLs)
+        // Guardar en la base de datos
         const newService = await Service.create({
-            fotoantes: fotoAntesUrl,
-            fotodespues: fotoDespuesUrl,
+            foto: fotoUrl,
             Lugar: Lugar || null,
             Nombre: Nombre || 'Proyecto de concreto'
         });
@@ -115,23 +112,14 @@ const updateservice = async (req, res) => {
         if (req.body.Lugar !== undefined) updateData.Lugar = req.body.Lugar;
         if (req.body.Nombre !== undefined) updateData.Nombre = req.body.Nombre;
 
-        // Si viene nueva foto "antes", Cloudinary ya la subió
-        if (req.files && req.files.fotoantes) {
+        // Si viene nueva foto, Cloudinary ya la subió
+        if (req.files && req.files.foto) {
             // Opcional: Eliminar la imagen anterior de Cloudinary
-            if (service.fotoantes) {
-                const publicId = service.fotoantes.split('/').slice(-2).join('/').split('.')[0];
+            if (service.foto) {
+                const publicId = service.foto.split('/').slice(-2).join('/').split('.')[0];
                 await cloudinary.uploader.destroy(publicId);
             }
-            updateData.fotoantes = req.files.fotoantes[0].path;
-        }
-
-        // Si viene nueva foto "después"
-        if (req.files && req.files.fotodespues) {
-            if (service.fotodespues) {
-                const publicId = service.fotodespues.split('/').slice(-2).join('/').split('.')[0];
-                await cloudinary.uploader.destroy(publicId);
-            }
-            updateData.fotodespues = req.files.fotodespues[0].path;
+            updateData.foto = req.files.foto[0].path;
         }
 
         await service.update(updateData);
@@ -166,13 +154,9 @@ const deleteservice = async (req, res) => {
             });
         }
 
-        // Eliminar imágenes de Cloudinary
-        if (service.fotoantes) {
-            const publicId = service.fotoantes.split('/').slice(-2).join('/').split('.')[0];
-            await cloudinary.uploader.destroy(publicId);
-        }
-        if (service.fotodespues) {
-            const publicId = service.fotodespues.split('/').slice(-2).join('/').split('.')[0];
+        // Eliminar imagen de Cloudinary
+        if (service.foto) {
+            const publicId = service.foto.split('/').slice(-2).join('/').split('.')[0];
             await cloudinary.uploader.destroy(publicId);
         }
 
@@ -199,20 +183,15 @@ const getservicestats = async (req, res) => {
     try {
         const totalServices = await Service.count();
 
-        const servicesWithBefore = await Service.count({
-            where: { fotoantes: { [require('sequelize').Op.ne]: null } }
-        });
-
-        const servicesWithAfter = await Service.count({
-            where: { fotodespues: { [require('sequelize').Op.ne]: null } }
+        const servicesWithPhoto = await Service.count({
+            where: { foto: { [require('sequelize').Op.ne]: null } }
         });
 
         res.json({
             success: true,
             data: {
                 total: totalServices,
-                conFotoAntes: servicesWithBefore,
-                conFotoDespues: servicesWithAfter
+                conFoto: servicesWithPhoto
             }
         });
 

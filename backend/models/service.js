@@ -2,11 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Service = sequelize.define('Service', {
-    fotoantes: {
-        type: DataTypes.TEXT,
-        allowNull: true
-    },
-     fotodespues: {
+    foto: {
         type: DataTypes.TEXT,
         allowNull: true
     },
