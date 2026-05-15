@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 // sincronizar base de datos y levantar servidor
 async function startServer() {
     try {
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: true });
         console.log('📦 base de datos sincronizada');
         
         // 🔥 CAMBIO IMPORTANTE: Escuchar en 0.0.0.0
