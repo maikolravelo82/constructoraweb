@@ -1577,7 +1577,7 @@
       <div class="header-left">
         <div class="portfolio-badge"><i class="fa-solid fa-images"></i> PORTFOLIO</div>
         <h2 class="portfolio-title">OUR WORK</h2>
-        <p class="portfolio-sub">Before and after that speak for themselves</p>
+        
       </div>
       <div class="view-all-btn">
         <button class="btn-view-all" id="viewAllBtn">
@@ -1808,7 +1808,6 @@
     <button id="closeModal" style="background: #e86b10; border: none; padding: 8px 28px; border-radius: 40px; color: white; font-weight: 700; margin-top: 20px; cursor: pointer;">Cerrar</button>
   </div>
 </div>
-
 <script>
   // ============================================
   // CONFIGURACIÓN DE API - MISMO SERVIDOR
@@ -1845,6 +1844,7 @@ const form = document.getElementById('form');
       form.reset();
     });
   }
+
 // ============================================
 // CARGAR PORTAFOLIO DESDE LA API
 // ============================================
@@ -1924,7 +1924,8 @@ async function loadPortfolio() {
     `;
   }
 }
-// Renderizar proyectos en un grid
+
+// Renderizar proyectos en un grid (ahora con una sola foto)
 function renderProjects(projects, container, isExtra = false) {
   if (!container) return;
   
@@ -1937,19 +1938,11 @@ function renderProjects(projects, container, isExtra = false) {
   
   container.innerHTML = projects.map(project => `
     <div class="project-card" data-id="${project.id}">
-      <div class="image-comparison">
-        <div class="image-box">
-          <span class="image-label">BEFORE</span>
-          <img src="${project.fotoantes || 'https://placehold.co/400x200/2a2a2a/ffb347?text=BEFORE'}" 
-               alt="Before - ${escapeHTML(project.Nombre || 'Project')}" 
-               onerror="this.src='https://placehold.co/400x200/2a2a2a/ffb347?text=BEFORE'">
-        </div>
-        <div class="image-box">
-          <span class="image-label right">AFTER</span>
-          <img src="${project.fotodespues || 'https://placehold.co/400x200/2a2a2a/ffb347?text=AFTER'}" 
-               alt="After - ${escapeHTML(project.Nombre || 'Project')}" 
-               onerror="this.src='https://placehold.co/400x200/2a2a2a/ffb347?text=AFTER'">
-        </div>
+      <div class="project-image-container">
+        <img src="${project.foto || 'https://placehold.co/600x400/2a2a2a/ffb347?text=PROJECT'}" 
+             alt="${escapeHTML(project.Nombre || 'Project')}" 
+             class="project-image"
+             onerror="this.src='https://placehold.co/600x400/2a2a2a/ffb347?text=PROJECT'">
       </div>
       <div class="project-info">
         <h3 class="project-title-card">${escapeHTML(project.Nombre || 'Completed Project')}</h3>
@@ -1958,6 +1951,7 @@ function renderProjects(projects, container, isExtra = false) {
     </div>
   `).join('');
 }
+
 // Función para escapar HTML
 function escapeHTML(str) {
   if (!str) return '';
@@ -2018,6 +2012,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadPortfolio();
   initPortfolioEvents();
 });
+
   // ============================================
   // FUNCIONES PARA TESTIMONIOS CON API
   // ============================================
@@ -2040,6 +2035,7 @@ function clearRatingSelection() {
     const defaultStar = document.getElementById('star5');
     if (defaultStar) defaultStar.checked = true;
   }
+  
   // Guardar testimonio en la API
  async function guardarTestimonio() {
     const nombre = document.getElementById('nombreTestimonio').value.trim();
@@ -2093,6 +2089,7 @@ function clearRatingSelection() {
     
     return false;
   }
+  
   // Función para cargar testimonios (wrapper)
   async function cargarTestimonios() {
     await cargarTestimoniosDesdeAPI();
@@ -2149,6 +2146,7 @@ function clearRatingSelection() {
       `;
     }
   }
+  
   // ============================================
   // FUNCIONES AUXILIARES
   // ============================================
@@ -2169,17 +2167,6 @@ function clearRatingSelection() {
       month: 'long',
       day: 'numeric'
     });
-  }
-
-  // Escapar HTML para seguridad
-  function escapeHTML(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
   }
 
   // Mostrar formulario de testimonio
@@ -2204,7 +2191,7 @@ function clearRatingSelection() {
   // INICIALIZACIÓN
   // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    loadTestimonialsFromAPI();
+    cargarTestimoniosDesdeAPI();
     clearRatingSelection();
 });
 
@@ -2255,42 +2242,40 @@ if (adminLink) {
   });
 
   // Portafolio: Ver todos / Mostrar menos
-  const viewAllBtn = document.getElementById('viewAllBtn');
-  const extraProjects = document.getElementById('extraProjects');
-  const hideExtraBtn = document.getElementById('hideExtraBtn');
-  const mainGrid = document.getElementById('mainProjectsGrid');
+  const viewAllBtnPort = document.getElementById('viewAllBtn');
+  const extraProjectsPort = document.getElementById('extraProjects');
+  const hideExtraBtnPort = document.getElementById('hideExtraBtn');
+  const mainGridPort = document.getElementById('mainProjectsGrid');
 
-  if (viewAllBtn) {
-    viewAllBtn.addEventListener('click', function() {
-      extraProjects.classList.add('show');
-      mainGrid.classList.add('expanded');
-      viewAllBtn.style.display = 'none';
+  if (viewAllBtnPort) {
+    viewAllBtnPort.addEventListener('click', function() {
+      if (extraProjectsPort) extraProjectsPort.classList.add('show');
+      if (mainGridPort) mainGridPort.classList.add('expanded');
+      viewAllBtnPort.style.display = 'none';
       setTimeout(() => {
-        extraProjects.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (extraProjectsPort) extraProjectsPort.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
     });
   }
 
-  if (hideExtraBtn) {
-    hideExtraBtn.addEventListener('click', function() {
-      extraProjects.classList.remove('show');
-      mainGrid.classList.remove('expanded');
-      viewAllBtn.style.display = 'inline-flex';
-      viewAllBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (hideExtraBtnPort) {
+    hideExtraBtnPort.addEventListener('click', function() {
+      if (extraProjectsPort) extraProjectsPort.classList.remove('show');
+      if (mainGridPort) mainGridPort.classList.remove('expanded');
+      if (viewAllBtnPort) viewAllBtnPort.style.display = 'inline-flex';
+      viewAllBtnPort.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
 
   // Manejo de errores de imágenes
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', function() {
-      const parentBox = this.parentElement;
-      const label = parentBox ? parentBox.querySelector('.image-label') : null;
-      const text = label ? label.innerText : 'Imagen';
-      this.src = `https://placehold.co/400x200/2a2a2a/e86b10?text=${encodeURIComponent(text)}`;
+      if (!this.src.includes('placehold')) {
+        this.src = 'https://placehold.co/600x400/2a2a2a/ffb347?text=IMAGE';
+      }
     });
   });
   
 </script>
-
 </body>
 </html>

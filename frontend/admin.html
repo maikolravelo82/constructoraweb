@@ -150,12 +150,9 @@
       filter: brightness(1.1);
     }
     
-    /* Preview de imágenes */
+    /* Preview de imagen */
     .preview-container {
-      display: flex;
-      gap: 1rem;
       margin-top: 0.5rem;
-      flex-wrap: wrap;
     }
     .preview-box {
       display: none;
@@ -175,7 +172,7 @@
       max-height: 100px;
       border-radius: 8px;
       border: 2px solid #ffb347;
-      object-fit:contain;
+      object-fit: contain;
     }
     
     /* Grid de trabajos */
@@ -196,26 +193,15 @@
       border-color: #ffb347;
       transform: translateY(-4px);
     }
-    .card .image-pair {
-      display: flex;
-      gap: 0.5rem;
+    .card .image-container {
+      width: 100%;
       margin-bottom: 0.8rem;
     }
-    .card .image-pair div {
-      flex: 1;
-      text-align: center;
-    }
-    .card .image-pair img {
+    .card .image-container img {
       width: 100%;
-      height: 120px;
-      object-fit: contain;
+      height: 200px;
+      object-fit: cover;
       border-radius: 8px;
-    }
-    .card .image-label {
-      font-size: 0.6rem;
-      color: #ffb347;
-      display: block;
-      margin-top: 0.25rem;
     }
     .card small {
       display: block;
@@ -423,9 +409,6 @@
         width: 100%;
         justify-content: center;
       }
-      .card .image-pair {
-        flex-direction: column;
-      }
       .alert {
         top: 10px;
         right: 10px;
@@ -450,19 +433,11 @@
     <div class="add-work-form">
       <form id="addWorkForm" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="fotoAntes"><i class="fas fa-image"></i> Foto ANTES:</label>
-          <input type="file" id="fotoAntes" name="fotoantes" accept="image/*" required>
-          <div class="preview-box" id="previewAntesContainer">
-            <label>Vista previa ANTES:</label>
-            <img id="previewAntes" src="" alt="Vista previa antes">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="fotoDespues"><i class="fas fa-image"></i> Foto DESPUÉS:</label>
-          <input type="file" id="fotoDespues" name="fotodespues" accept="image/*" required>
-          <div class="preview-box" id="previewDespuesContainer">
-            <label>Vista previa DESPUÉS:</label>
-            <img id="previewDespues" src="" alt="Vista previa después">
+          <label for="foto"><i class="fas fa-image"></i> Foto del proyecto:</label>
+          <input type="file" id="foto" name="foto" accept="image/*" required>
+          <div class="preview-box" id="previewFotoContainer">
+            <label>Vista previa:</label>
+            <img id="previewFoto" src="" alt="Vista previa">
           </div>
         </div>
         <div class="form-group">
@@ -502,14 +477,9 @@
     <form id="editForm" enctype="multipart/form-data">
       <input type="hidden" id="editId" name="id">
       <div class="form-group">
-        <label>Foto ANTES (opcional):</label>
-        <input type="file" id="editFotoAntes" name="fotoantes" accept="image/*">
-        <small>Dejar vacío para mantener la actual</small>
-      </div>
-      <div class="form-group">
-        <label>Foto DESPUÉS (opcional):</label>
-        <input type="file" id="editFotoDespues" name="fotodespues" accept="image/*">
-        <small>Dejar vacío para mantener la actual</small>
+        <label>Foto del proyecto (opcional):</label>
+        <input type="file" id="editFoto" name="foto" accept="image/*">
+        <small>Dejar vacío para mantener la foto actual</small>
       </div>
       <div class="form-group">
         <label>Lugar:</label>
@@ -547,16 +517,15 @@
   console.log('REVIEWS_API_URL:', REVIEWS_API_URL);
   
   // Verificar autenticación
-const publicPages = ['login.html', 'index.html'];
-const currentPage = window.location.pathname.split('/').pop();
+  const publicPages = ['login.html', 'index.html'];
+  const currentPage = window.location.pathname.split('/').pop();
 
-if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn') !== 'true') {
-    // No redirigir automáticamente, solo mostrar mensaje
+  if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn') !== 'true') {
     console.log('⚠️ No autenticado. Por favor inicia sesión.');
-}
+  }
   
   // ============================================
-  // PREVISUALIZACIÓN DE IMÁGENES
+  // PREVISUALIZACIÓN DE IMAGEN
   // ============================================
   function setupImagePreview(inputId, previewId, containerId) {
     const input = document.getElementById(inputId);
@@ -581,8 +550,7 @@ if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn'
     }
   }
   
-  setupImagePreview('fotoAntes', 'previewAntes', 'previewAntesContainer');
-  setupImagePreview('fotoDespues', 'previewDespues', 'previewDespuesContainer');
+  setupImagePreview('foto', 'previewFoto', 'previewFotoContainer');
   
   // ============================================
   // AGREGAR NUEVO TRABAJO (con FormData)
@@ -592,19 +560,17 @@ if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn'
   addWorkForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const fotoAntesFile = document.getElementById('fotoAntes').files[0];
-    const fotoDespuesFile = document.getElementById('fotoDespues').files[0];
+    const fotoFile = document.getElementById('foto').files[0];
     const lugar = document.getElementById('lugar').value.trim();
     const nombre = document.getElementById('nombreProyecto').value.trim();
     
-    if (!fotoAntesFile || !fotoDespuesFile) {
-      showMessage('❌ Por favor, selecciona ambas imágenes (ANTES y DESPUÉS)', 'error');
+    if (!fotoFile) {
+      showMessage('❌ Por favor, selecciona una foto para el proyecto', 'error');
       return;
     }
     
     const formData = new FormData();
-    formData.append('fotoantes', fotoAntesFile);
-    formData.append('fotodespues', fotoDespuesFile);
+    formData.append('foto', fotoFile);
     if (lugar) formData.append('Lugar', lugar);
     if (nombre) formData.append('Nombre', nombre);
     
@@ -624,8 +590,7 @@ if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn'
       if (result.success) {
         showMessage('✅ Trabajo agregado exitosamente', 'success');
         addWorkForm.reset();
-        document.getElementById('previewAntesContainer').classList.remove('show');
-        document.getElementById('previewDespuesContainer').classList.remove('show');
+        document.getElementById('previewFotoContainer').classList.remove('show');
         loadServices();
       } else {
         showMessage('❌ Error: ' + (result.message || 'No se pudo agregar el trabajo'), 'error');
@@ -653,22 +618,13 @@ if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn'
       if (result.success && result.data.length > 0) {
         container.innerHTML = result.data.map(service => `
           <div class="card" data-id="${service.id}">
-            <div class="image-pair">
-              <div>
-                <img src="${service.fotoantes || 'https://placehold.co/300x200/2a2a2a/ffb347?text=ANTES'}" 
-                     alt="Antes" 
-                     onerror="this.src='https://placehold.co/300x200/2a2a2a/ffb347?text=ANTES'">
-                <span class="image-label">ANTES</span>
-              </div>
-              <div>
-                <img src="${service.fotodespues || 'https://placehold.co/300x200/2a2a2a/ffb347?text=DESPU%C3%89S'}" 
-                     alt="Después" 
-                     onerror="this.src='https://placehold.co/300x200/2a2a2a/ffb347?text=DESPU%C3%89S'">
-                <span class="image-label">DESPUÉS</span>
-              </div>
+            <div class="image-container">
+              <img src="${service.foto || 'https://placehold.co/600x400/2a2a2a/ffb347?text=SIN+FOTO'}" 
+                   alt="${escapeHTML(service.Nombre || 'Proyecto')}" 
+                   onerror="this.src='https://placehold.co/600x400/2a2a2a/ffb347?text=SIN+FOTO'">
             </div>
-            <small><i class="fas fa-map-marker-alt"></i> ${service.Lugar || 'No especificado'} | <i class="fas fa-calendar-alt"></i> ${new Date(service.createdAt).toLocaleDateString()}</small>
-            <small><strong>${service.Nombre || 'Proyecto'}</strong> | ID: ${service.id}</small>
+            <small><i class="fas fa-map-marker-alt"></i> ${escapeHTML(service.Lugar) || 'No especificado'} | <i class="fas fa-calendar-alt"></i> ${new Date(service.createdAt).toLocaleDateString()}</small>
+            <small><strong>${escapeHTML(service.Nombre) || 'Proyecto sin nombre'}</strong> | ID: ${service.id}</small>
             <div class="card-actions">
               <button class="edit-btn" onclick="openEditModal(${service.id})">
                 <i class="fas fa-edit"></i> Editar
@@ -726,14 +682,12 @@ if (!publicPages.includes(currentPage) && sessionStorage.getItem('adminLoggedIn'
     const id = document.getElementById('editId').value;
     const lugar = document.getElementById('editLugar').value.trim();
     const nombre = document.getElementById('editNombre').value.trim();
-    const fotoAntesFile = document.getElementById('editFotoAntes').files[0];
-    const fotoDespuesFile = document.getElementById('editFotoDespues').files[0];
+    const fotoFile = document.getElementById('editFoto').files[0];
     
     const formData = new FormData();
     if (lugar) formData.append('Lugar', lugar);
     if (nombre) formData.append('Nombre', nombre);
-    if (fotoAntesFile) formData.append('fotoantes', fotoAntesFile);
-    if (fotoDespuesFile) formData.append('fotodespues', fotoDespuesFile);
+    if (fotoFile) formData.append('foto', fotoFile);
     
     const submitBtn = editForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
