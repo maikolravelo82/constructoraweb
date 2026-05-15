@@ -52,20 +52,29 @@ const getservicebyid = async (req, res) => {
 };
 
 // ============================================
-// CREAR NUEVO SERVICIO (CON CLOUDINARY)
+// CREAR NUEVO SERVICIO (CON UNA SOLA FOTO)
 // ============================================
 const createservice = async (req, res) => {
     try {
         // Verificar que llegue el archivo
-        if (!req.files || !req.files.foto) {
+        if (!req.file && (!req.files || !req.files.foto)) {
             return res.status(400).json({
                 success: false,
-                message: 'Debes subir una imagen'
+                message: 'Debes subir una foto para el proyecto'
             });
         }
 
-        // Multer-Storage-Cloudinary ya subió la imagen
-        const fotoUrl = req.files.foto[0].path; // Cloudinary URL
+        // Obtener la URL de la foto (multer-storage-cloudinary)
+        let fotoUrl = null;
+        
+        // Soporte para upload.single('foto')
+        if (req.file) {
+            fotoUrl = req.file.path;
+        }
+        // Soporte para upload.fields (por compatibilidad)
+        else if (req.files && req.files.foto) {
+            fotoUrl = req.files.foto[0].path;
+        }
         
         const { Lugar, Nombre } = req.body;
 
@@ -112,14 +121,27 @@ const updateservice = async (req, res) => {
         if (req.body.Lugar !== undefined) updateData.Lugar = req.body.Lugar;
         if (req.body.Nombre !== undefined) updateData.Nombre = req.body.Nombre;
 
-        // Si viene nueva foto, Cloudinary ya la subió
-        if (req.files && req.files.foto) {
+        // Si viene nueva foto
+        let fotoUrl = null;
+        if (req.file) {
+            fotoUrl = req.file.path;
+        } else if (req.files && req.files.foto) {
+            fotoUrl = req.files.foto[0].path;
+        }
+        
+        if (fotoUrl) {
             // Opcional: Eliminar la imagen anterior de Cloudinary
             if (service.foto) {
-                const publicId = service.foto.split('/').slice(-2).join('/').split('.')[0];
-                await cloudinary.uploader.destroy(publicId);
+                try {
+                    const publicId = extractPublicId(service.foto);
+                    if (publicId) {
+                        await cloudinary.uploader.destroy(publicId);
+                    }
+                } catch (cloudinaryError) {
+                    console.error('Error al eliminar imagen anterior:', cloudinaryError);
+                }
             }
-            updateData.foto = req.files.foto[0].path;
+            updateData.foto = fotoUrl;
         }
 
         await service.update(updateData);
@@ -156,8 +178,14 @@ const deleteservice = async (req, res) => {
 
         // Eliminar imagen de Cloudinary
         if (service.foto) {
-            const publicId = service.foto.split('/').slice(-2).join('/').split('.')[0];
-            await cloudinary.uploader.destroy(publicId);
+            try {
+                const publicId = extractPublicId(service.foto);
+                if (publicId) {
+                    await cloudinary.uploader.destroy(publicId);
+                }
+            } catch (cloudinaryError) {
+                console.error('Error al eliminar imagen de Cloudinary:', cloudinaryError);
+            }
         }
 
         await service.destroy();
@@ -184,7 +212,9 @@ const getservicestats = async (req, res) => {
         const totalServices = await Service.count();
 
         const servicesWithPhoto = await Service.count({
-            where: { foto: { [require('sequelize').Op.ne]: null } }
+            where: { 
+                foto: { [require('sequelize').Op.ne]: null } 
+            }
         });
 
         res.json({
@@ -203,6 +233,22 @@ const getservicestats = async (req, res) => {
         });
     }
 };
+
+// Función auxiliar para extraer el public_id de Cloudinary
+function extractPublicId(url) {
+    if (!url) return null;
+    try {
+        // Ejemplo de URL: https://res.cloudinary.com/.../servicios_fotos/abc123.jpg
+        const parts = url.split('/');
+        const filename = parts.pop();
+        const folder = parts.pop();
+        const publicId = `${folder}/${filename.split('.')[0]}`;
+        return publicId;
+    } catch (error) {
+        console.error('Error al extraer public_id:', error);
+        return null;
+    }
+}
 
 module.exports = {
     getallservices,
